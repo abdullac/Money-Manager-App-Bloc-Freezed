@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:money_manger_bloc/applications/add_transaction/add_transaction_bloc.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 import 'package:money_manger_bloc/presentations/add_transaction_screen/add_transaction_screen.dart';
 import 'package:money_manger_bloc/presentations/category_screen/screen_category.dart';
@@ -43,15 +45,44 @@ class MainPage extends StatelessWidget {
               } else if (viewedScreen == ViewedScreen.expenseTransactionList) {
               } else if (viewedScreen == ViewedScreen.addTransaction) {
                 /// add transaction
-                TransactionModel(
-                  transactionId: AddTransactionScreen.transactionId,
-                  amount: AddTransactionScreen.amountEditingController.text,
-                  transactionType: AddTransactionScreen.radioValue,
-                  category: AddTransactionScreen.dropdownButtonValue,
-                  date: AddTransactionScreen.selectedDate,
-                  description:
-                      AddTransactionScreen.descriptionEditingController.text,
-                );
+
+                int transactionId = AddTransactionScreen.transactionId;
+                String amount =
+                    AddTransactionScreen.amountEditingController.text;
+                TransactionType? transactionType =
+                    AddTransactionScreen.radioValue;
+                String? category = AddTransactionScreen.dropdownButtonValue;
+                DateTime? date = AddTransactionScreen.selectedDate;
+                String description =
+                    AddTransactionScreen.descriptionEditingController.text;
+
+                if (amount != "" &&
+                    transactionType != null &&
+                    category != null &&
+                    date != null &&
+                    date.toString() != "Select Date" &&
+                    description != "") {
+                  BlocProvider.of<AddTransactionBloc>(context).add(
+                    SaveTransaction(
+                      transactionModel: TransactionModel(
+                        transactionId: AddTransactionScreen.transactionId,
+                        amount:
+                            AddTransactionScreen.amountEditingController.text,
+                        transactionType: AddTransactionScreen.radioValue,
+                        category: AddTransactionScreen.dropdownButtonValue,
+                        date: AddTransactionScreen.selectedDate,
+                        description: AddTransactionScreen
+                            .descriptionEditingController.text,
+                      ),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text(
+                    "please give information correctly",
+                    textAlign: TextAlign.center,
+                  )));
+                }
               } else if (viewedScreen == ViewedScreen.updateTransaction) {
               } else if (viewedScreen == ViewedScreen.transactionView) {
               } else {
@@ -62,7 +93,7 @@ class MainPage extends StatelessWidget {
           )
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child:
             // selectedIndex == 0 ? const ScreenTransactions() : ScreenCategory(),
             // ScreenCategoryTransactionList(),

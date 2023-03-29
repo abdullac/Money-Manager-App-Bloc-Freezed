@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:money_manger_bloc/applications/add_transaction/add_transaction_bloc.dart';
 
 import 'presentations/main_page/page_main.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MainPage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddTransactionBloc(),
+        ),
+      ],
+      child: const MaterialApp(
+        home: MainPage(),
+      ),
     );
   }
 }

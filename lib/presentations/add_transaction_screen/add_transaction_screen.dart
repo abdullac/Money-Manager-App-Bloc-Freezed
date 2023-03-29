@@ -182,8 +182,10 @@ class SelectDateCalender extends StatelessWidget {
           Text(
             AddTransactionScreen.selectedDate == null
                 ? "Select Date"
-                : DateFormat("dd-MM-yyyy").format(
-                    AddTransactionScreen.selectedDate ?? DateTime.now()),
+                : (DateFormat("dd-MM-yyyy").format(
+                    AddTransactionScreen.selectedDate
+                     ?? DateTime.now()
+                     )).toString(),
           ),
         ],
       ),
