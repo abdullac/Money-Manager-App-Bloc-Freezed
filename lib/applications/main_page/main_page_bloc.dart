@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/add_transaction_page_widget.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/appbar_back_button.dart';
+import 'package:money_manger_bloc/domain/metheds/main_page/appbar_leading_widget.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/select_appbar_action_icon.dart';
 import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
+import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
 part 'main_page_event.dart';
 part 'main_page_state.dart';
@@ -12,31 +14,66 @@ part 'main_page_bloc.freezed.dart';
 
 class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
   MainPageBloc() : super(MainPageState.initial()) {
-    on<ChangeBottomNavigationBarItem>((event, emit) {
+    on<ViewMainPage>((event, emit) {
       emit(state.copyWith(
-        position: event.position,
+        appBarLeadingWidget: appBarLeadingWidget(event.gotoScreen),
+        appBarTitle: event.gotoScreen == Screen.addTransaction
+            ? "Add Transaction"
+            : event.gotoScreen == Screen.expenseTransactionList
+                ? "Expense"
+                : event.gotoScreen == Screen.incomeTransactionList
+                    ? "Income"
+                    : event.gotoScreen == Screen.transactionView
+                        ? event.transactionItemTitle ?? "*Transaction Item"
+                        : event.gotoScreen == Screen.updateTransaction
+                            ? "Update Transaction"
+                            : "MoneyManager MM",
+        actionIconButton: event.gotoScreen == Screen.addTransaction
+            ? Icons.save_alt
+            : event.gotoScreen == Screen.updateTransaction
+                ? Icons.system_update_alt_rounded
+                : Icons.add_card,
+        goToWidget: event.gotoWidget,
+        position: event.gotoScreen == Screen.transactions
+            ? 0
+            : event.gotoScreen == Screen.incomeCategory ||
+                    event.gotoScreen == Screen.expenseCategory
+                ? 1
+                : null,
       ));
     });
 
-    on<ViewAppbarBackButton>((event, emit) {
-      bool isViewGoBackButton = event.isViewGoBackButton;
-      emit(state.copyWith(
-        goBackButton: appBarBackButton(isViewGoBackButton),
-      ));
-    });
+    // on<ChangeBottomNavigationBarItem>((event, emit) {
+    //   emit(state.copyWith(
+    //     position: event.position,
+    //   ));
+    // });
 
-    on<ChangeAppBarTitle>((event, emit) {
-      emit(state.copyWith(
-        appBarTitle: event.appBarTitle,
-      ));
-    });
+    // on<ViewAppbarBackButton>((event, emit) {
+    //   bool isViewGoBackButton = event.isViewGoBackButton;
+    //   emit(state.copyWith(
+    //     goBackButton: appBarBackButton(isViewGoBackButton),
+    //   ));
+    // });
 
-    on<ChangeActionButton>((event, emit) {
-      AppbarActionButton appbarActionButton = event.appbarActionButton;
-      emit(state.copyWith(
-        icon: selectAppbarActionIcon(appbarActionButton),
-      ));
-    });
+    // on<ChangeAppBarTitle>((event, emit) {
+    //   emit(state.copyWith(
+    //     appBarTitle: event.appBarTitle,
+    //   ));
+    // });
+
+    // on<ChangeActionButton>((event, emit) {
+    //   AppbarActionButton appbarActionButton = event.appbarActionButton;
+    //   emit(state.copyWith(
+    //     actionIconButton: selectAppbarActionIcon(appbarActionButton),
+    //   ));
+    // });
+
+    // on<GotoBack>((event, emit) {
+    //   emit(state.copyWith(
+    //     goToWidget: event.gotoBackWidget,
+    //   ));
+    // });
 
     on<GotoAddTransactionPage>((event, emit) {
       Widget addTransactionPage = addTransactionPageWidget();

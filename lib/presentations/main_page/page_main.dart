@@ -10,8 +10,20 @@ import 'package:money_manger_bloc/presentations/category_transaction_list_screen
 import 'package:money_manger_bloc/presentations/transaction_view-screen/screen_transaction_view.dart';
 import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
-enum ViewedScreen {
+// enum ViewedScreen {
+//   transactions,
+//   incomeCategory,
+//   expenseCategory,
+//   incomeTransactionList,
+//   expenseTransactionList,
+//   addTransaction,
+//   updateTransaction,
+//   transactionView,
+// }
+
+enum Screen {
   transactions,
+  category,
   incomeCategory,
   expenseCategory,
   incomeTransactionList,
@@ -34,107 +46,133 @@ class MainPage extends StatelessWidget {
     super.key,
   });
 
-  static ViewedScreen viewedScreen = ViewedScreen.transactions;
+  static Screen viewedScreen = Screen.transactions;
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<MainPageBloc>(context)
-          .add(const ChangeAppBarTitle(appBarTitle: "Money Manager App M"));
-      BlocProvider.of<MainPageBloc>(context).add(
-          const ChangeActionButton(appbarActionButton: AppbarActionButton.add));
+      // BlocProvider.of<MainPageBloc>(context)
+      //     .add(const ChangeAppBarTitle(appBarTitle: "Money Manager App M"));
+      // BlocProvider.of<MainPageBloc>(context).add(
+      //     const ChangeActionButton(appbarActionButton: AppbarActionButton.add));
     });
-    return Scaffold(
-      appBar: AppBar(
-        leading: BlocBuilder<MainPageBloc, MainPageState>(
-          builder: (context, state) {
-            return state.goBackButton;
-          },
-        ),
-        title: BlocBuilder<MainPageBloc, MainPageState>(
-          builder: (context, state) {
-            return Text(state.appBarTitle);
-          },
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // appBar action Button pressed
-              if (viewedScreen == ViewedScreen.transactions) {
-                BlocProvider.of<MainPageBloc>(context)
-                    .add(const GotoAddTransactionPage());
-              } else if (viewedScreen == ViewedScreen.incomeCategory) {
-                BlocProvider.of<MainPageBloc>(context)
-                    .add(const GotoAddTransactionPage());
-              } else if (viewedScreen == ViewedScreen.expenseCategory) {
-                BlocProvider.of<MainPageBloc>(context)
-                    .add(const GotoAddTransactionPage());
-              } else if (viewedScreen == ViewedScreen.incomeTransactionList) {
-                BlocProvider.of<MainPageBloc>(context)
-                    .add(const GotoAddTransactionPage());
-              } else if (viewedScreen == ViewedScreen.expenseTransactionList) {
-                BlocProvider.of<MainPageBloc>(context)
-                    .add(const GotoAddTransactionPage());
-              } else if (viewedScreen == ViewedScreen.addTransaction) {
-                addTransaction(context);
-              } else if (viewedScreen == ViewedScreen.updateTransaction) {
-              } else if (viewedScreen == ViewedScreen.transactionView) {
-              } else {
-                ///
-              }
-            },
-            icon: BlocBuilder<MainPageBloc, MainPageState>(
-              builder: (context, state) {
-                return Icon(state.icon);
-              },
-            ),
-          )
-        ],
-      ),
-      body: BlocBuilder<MainPageBloc, MainPageState>(
-        builder: (context, state) {
-          return state.goToWidget ??
-              SafeArea(
-                child: state.position == 0
-                    ? const ScreenTransactions()
-                    : const ScreenCategory(),
-                // ScreenCategoryTransactionList(),
-                // ScreenTransactionView(),
-                // AddTransactionScreen(),
-              );
-        },
-      ),
-      bottomNavigationBar: BlocBuilder<MainPageBloc, MainPageState>(
-        builder: (context, state) {
-          // selectedIndex = state.position;
-          return BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(
-                icon: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: const [
-                    Icon(Icons.arrow_downward),
-                    Icon(Icons.arrow_upward),
-                  ],
-                ),
-                label: "Transactions",
-              ),
-              const BottomNavigationBarItem(
-                icon: Icon(Icons.category),
-                label: "Category",
-              ),
+    return BlocBuilder<MainPageBloc, MainPageState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+                onPressed: () {
+                  // back button
+                  // BlocProvider.of<MainPageBloc>(context).add(
+                  //     const GotoBack(gotoBackWidget: ScreenTransactions()));
+                  BlocProvider.of<MainPageBloc>(context).add(const ViewMainPage(
+                      gotoScreen: Screen.transactions,
+                      gotoWidget: ScreenTransactions()));
+                },
+                icon: state.appBarLeadingWidget),
+            title: Text(state.appBarTitle),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  // appBar action Button pressed
+                  if (viewedScreen == Screen.transactions) {
+                    // BlocProvider.of<MainPageBloc>(context)
+                    //     .add(const GotoAddTransactionPage());
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else if (viewedScreen == Screen.category) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  }  else if (viewedScreen == Screen.incomeCategory) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else if (viewedScreen == Screen.expenseCategory) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else if (viewedScreen == Screen.incomeTransactionList) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else if (viewedScreen == Screen.expenseTransactionList) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else if (viewedScreen == Screen.addTransaction) {
+                    addTransaction(context);
+                  } else if (viewedScreen == Screen.updateTransaction) {
+                  } else if (viewedScreen == Screen.transactionView) {
+                    BlocProvider.of<MainPageBloc>(context).add(
+                        const ViewMainPage(
+                            gotoScreen: Screen.addTransaction,
+                            gotoWidget: AddTransactionScreen()));
+                  } else {
+                    ///
+                  }
+                },
+                icon: Icon(state.actionIconButton),
+              )
             ],
-            onTap: (value) {
-              //
-              BlocProvider.of<MainPageBloc>(context)
-                  .add(ChangeBottomNavigationBarItem(position: value));
-            },
-            // currentIndex: selectedIndex,
-            currentIndex: state.position,
-          );
-        },
-      ),
+          ),
+          body: state.goToWidget
+          //  ??
+          //     SafeArea(
+          //       child: state.position == 0
+          //           ? const ScreenTransactions()
+          //           : const ScreenCategory(),
+          //       // ScreenCategoryTransactionList(),
+          //       // ScreenTransactionView(),
+          //       // AddTransactionScreen(),
+          //     )
+          ,
+          bottomNavigationBar: state.position == null
+              ? const SizedBox()
+              : BottomNavigationBar(
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: const [
+                          Icon(Icons.arrow_downward),
+                          Icon(Icons.arrow_upward),
+                        ],
+                      ),
+                      label: "Transactions",
+                    ),
+                    const BottomNavigationBarItem(
+                      icon: Icon(Icons.category),
+                      label: "Category",
+                    ),
+                  ],
+                  onTap: (value) {
+                    //
+                    value == 0
+                        ? BlocProvider.of<MainPageBloc>(context)
+                            .add(const ViewMainPage(
+                            gotoScreen: Screen.transactions,
+                            gotoWidget: ScreenTransactions(),
+                          ))
+                        : BlocProvider.of<MainPageBloc>(context)
+                            .add(const ViewMainPage(
+                            gotoScreen: Screen.incomeCategory,
+                            gotoWidget: ScreenCategory(),
+                          ));
+                  },
+                  // currentIndex: selectedIndex,
+                  currentIndex: state.position!,
+                ),
+        );
+      },
     );
   }
 
@@ -165,8 +203,16 @@ class MainPage extends StatelessWidget {
           // gotoAfterSaveWidget: const ScreenTransactions(),
         ),
       );
-      BlocProvider.of<MainPageBloc>(context)
-          .add(const GotoPageWidget(gotoWidget: ScreenTransactions()));
+      // BlocProvider.of<MainPageBloc>(context)
+      //     .add(const GotoPageWidget(gotoWidget: ScreenTransactions()));
+      // BlocProvider.of<MainPageBloc>(context)
+      //     .add(const ChangeAppBarTitle(appBarTitle: "Money Manager App M"));
+      // BlocProvider.of<MainPageBloc>(context).add(
+      //     const ChangeActionButton(appbarActionButton: AppbarActionButton.add));
+      BlocProvider.of<MainPageBloc>(context).add(const ViewMainPage(
+        gotoScreen: Screen.transactions,
+        gotoWidget: ScreenTransactions(),
+      ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(

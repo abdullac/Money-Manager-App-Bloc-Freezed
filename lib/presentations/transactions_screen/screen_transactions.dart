@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
+import 'package:money_manger_bloc/domain/models/transaction_model.dart';
+import 'package:money_manger_bloc/presentations/add_transaction_screen/add_transaction_screen.dart';
+import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 
 class ScreenTransactions extends StatelessWidget {
   const ScreenTransactions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+        MainPage.viewedScreen = Screen.transactions;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<TransactionsBloc>(context)
           .add(const ViewTransactionList());
     });
-    return const TransactionListView(
-      isTransactionScreen: true,
-      transactionType: TransactionType.expense,
+    return BlocBuilder<TransactionsBloc, TransactionsState>(
+      builder: (context, state) {
+        return TransactionListView(
+          isTransactionScreen: true,
+          transactionType: TransactionType.incomeAndExpense,
+          transactionModelList: state.transactionModelList,
+        );
+      },
     );
   }
 }
@@ -21,24 +31,23 @@ class ScreenTransactions extends StatelessWidget {
 class TransactionListView extends StatelessWidget {
   final bool isTransactionScreen;
   final TransactionType transactionType;
+  final List<TransactionModel> transactionModelList;
   const TransactionListView({
     super.key,
     required this.isTransactionScreen,
     required this.transactionType,
+    required this.transactionModelList,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TransactionsBloc, TransactionsState>(
-      builder: (context, transactionsState) {
-        return ListView.builder(
-          itemBuilder: (context, index) => ListItemTileWidget(
-            isTransactionScreen: true,
-            transactionType: transactionType,
-          ),
-          itemCount: transactionsState.transactionModelList.length,
-        );
-      },
+    return ListView.builder(
+      itemBuilder: (context, index) => ListItemTileWidget(
+        isTransactionScreen: true,
+        // transactionType: transactionType,
+        transactionModel: transactionModelList[index],
+      ),
+      itemCount: transactionModelList.length,
     );
   }
 }
@@ -46,15 +55,18 @@ class TransactionListView extends StatelessWidget {
 enum TransactionType {
   income,
   expense,
+  incomeAndExpense,
 }
 
 class ListItemTileWidget extends StatelessWidget {
   final bool isTransactionScreen;
-  final TransactionType transactionType;
+  // final TransactionType transactionType;
+  final TransactionModel transactionModel;
   const ListItemTileWidget({
     super.key,
     required this.isTransactionScreen,
-    required this.transactionType,
+    // required this.transactionType,
+    required this.transactionModel,
   });
 
   @override
@@ -64,18 +76,21 @@ class ListItemTileWidget extends StatelessWidget {
       decoration: listTileDeorationAndShadows,
       child: ListTile(
         isThreeLine: true,
-        leading: const SizedBox(
+        leading: SizedBox(
           width: 35,
           child: Center(
             child: Text(
-              "22:11\n15 Mar\n2023",
+              (DateFormat("dd\nMMM\nyyyy")
+                  .format(transactionModel.date ?? DateTime.now())),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 10),
             ),
           ),
         ),
         title: Text(
-          isTransactionScreen == true ? "Title" : "Amount",
+          isTransactionScreen == true
+              ? transactionModel.category ?? "No Title provided"
+              : transactionModel.amount,
         ),
         subtitle: Padding(
           padding: const EdgeInsets.only(left: 5),
@@ -83,15 +98,15 @@ class ListItemTileWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                isTransactionScreen == true ? "Amount" : "n",
+                isTransactionScreen == true ? transactionModel.amount : "n",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              const Text(
-                "Description",
+              Text(
+                transactionModel.description,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.black38),
+                style: const TextStyle(color: Colors.black38),
               )
             ],
           ),
@@ -102,20 +117,16 @@ class ListItemTileWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               isTransactionScreen == true
-                  ? InkWell(
-                      onTap: () {
-                        // transaction type onTap
-                      },
-                      child: transactionType == TransactionType.income
-                          ? Icon(
-                              Icons.arrow_downward,
-                              color: Colors.green[500],
-                            )
-                          : Icon(
-                              Icons.arrow_upward,
-                              color: Colors.red[300],
-                            ),
-                    )
+                  // ? transactionType == TransactionType.income
+                  ? transactionModel.transactionType == TransactionType.income
+                      ? Icon(
+                          Icons.arrow_downward,
+                          color: Colors.green[500],
+                        )
+                      : Icon(
+                          Icons.arrow_upward,
+                          color: Colors.red[300],
+                        )
                   : const SizedBox(),
               const SizedBox(
                 width: 8,

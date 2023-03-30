@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_manger_bloc/applications/add_transaction/add_transaction_bloc.dart';
+import 'package:money_manger_bloc/applications/category/category_bloc.dart';
 import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
 import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AddTransactionBloc()),
         BlocProvider(create: (context) => MainPageBloc()),
         BlocProvider(create: (context) => TransactionsBloc()),
+        BlocProvider(create: (context) => CategoryBloc()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

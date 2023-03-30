@@ -18,32 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
+    required TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+        viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
+    TResult? Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
+    TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
     required TResult orElse(),
@@ -51,11 +46,7 @@ mixin _$MainPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
+    required TResult Function(ViewMainPage value) viewMainPage,
     required TResult Function(GotoAddTransactionPage value)
         gotoAddTransactionPage,
     required TResult Function(GotoPageWidget value) gotoPageWidget,
@@ -63,22 +54,14 @@ mixin _$MainPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
+    TResult? Function(ViewMainPage value)? viewMainPage,
     TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult? Function(GotoPageWidget value)? gotoPageWidget,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
+    TResult Function(ViewMainPage value)? viewMainPage,
     TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult Function(GotoPageWidget value)? gotoPageWidget,
     required TResult orElse(),
@@ -105,111 +88,126 @@ class _$MainPageEventCopyWithImpl<$Res, $Val extends MainPageEvent>
 }
 
 /// @nodoc
-abstract class _$$ChangeBottomNavigationBarItemCopyWith<$Res> {
-  factory _$$ChangeBottomNavigationBarItemCopyWith(
-          _$ChangeBottomNavigationBarItem value,
-          $Res Function(_$ChangeBottomNavigationBarItem) then) =
-      __$$ChangeBottomNavigationBarItemCopyWithImpl<$Res>;
+abstract class _$$ViewMainPageCopyWith<$Res> {
+  factory _$$ViewMainPageCopyWith(
+          _$ViewMainPage value, $Res Function(_$ViewMainPage) then) =
+      __$$ViewMainPageCopyWithImpl<$Res>;
   @useResult
-  $Res call({int position});
+  $Res call(
+      {Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle});
 }
 
 /// @nodoc
-class __$$ChangeBottomNavigationBarItemCopyWithImpl<$Res>
-    extends _$MainPageEventCopyWithImpl<$Res, _$ChangeBottomNavigationBarItem>
-    implements _$$ChangeBottomNavigationBarItemCopyWith<$Res> {
-  __$$ChangeBottomNavigationBarItemCopyWithImpl(
-      _$ChangeBottomNavigationBarItem _value,
-      $Res Function(_$ChangeBottomNavigationBarItem) _then)
+class __$$ViewMainPageCopyWithImpl<$Res>
+    extends _$MainPageEventCopyWithImpl<$Res, _$ViewMainPage>
+    implements _$$ViewMainPageCopyWith<$Res> {
+  __$$ViewMainPageCopyWithImpl(
+      _$ViewMainPage _value, $Res Function(_$ViewMainPage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? position = null,
+    Object? gotoScreen = null,
+    Object? gotoWidget = null,
+    Object? transactionItemTitle = freezed,
   }) {
-    return _then(_$ChangeBottomNavigationBarItem(
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int,
+    return _then(_$ViewMainPage(
+      gotoScreen: null == gotoScreen
+          ? _value.gotoScreen
+          : gotoScreen // ignore: cast_nullable_to_non_nullable
+              as Screen,
+      gotoWidget: null == gotoWidget
+          ? _value.gotoWidget
+          : gotoWidget // ignore: cast_nullable_to_non_nullable
+              as Widget,
+      transactionItemTitle: freezed == transactionItemTitle
+          ? _value.transactionItemTitle
+          : transactionItemTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$ChangeBottomNavigationBarItem implements ChangeBottomNavigationBarItem {
-  const _$ChangeBottomNavigationBarItem({required this.position});
+class _$ViewMainPage implements ViewMainPage {
+  const _$ViewMainPage(
+      {required this.gotoScreen,
+      required this.gotoWidget,
+      this.transactionItemTitle});
 
   @override
-  final int position;
+  final Screen gotoScreen;
+  @override
+  final Widget gotoWidget;
+  @override
+  final String? transactionItemTitle;
 
   @override
   String toString() {
-    return 'MainPageEvent.changeBottomNavigationBarItem(position: $position)';
+    return 'MainPageEvent.viewMainPage(gotoScreen: $gotoScreen, gotoWidget: $gotoWidget, transactionItemTitle: $transactionItemTitle)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeBottomNavigationBarItem &&
-            (identical(other.position, position) ||
-                other.position == position));
+            other is _$ViewMainPage &&
+            (identical(other.gotoScreen, gotoScreen) ||
+                other.gotoScreen == gotoScreen) &&
+            (identical(other.gotoWidget, gotoWidget) ||
+                other.gotoWidget == gotoWidget) &&
+            (identical(other.transactionItemTitle, transactionItemTitle) ||
+                other.transactionItemTitle == transactionItemTitle));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, position);
+  int get hashCode =>
+      Object.hash(runtimeType, gotoScreen, gotoWidget, transactionItemTitle);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeBottomNavigationBarItemCopyWith<_$ChangeBottomNavigationBarItem>
-      get copyWith => __$$ChangeBottomNavigationBarItemCopyWithImpl<
-          _$ChangeBottomNavigationBarItem>(this, _$identity);
+  _$$ViewMainPageCopyWith<_$ViewMainPage> get copyWith =>
+      __$$ViewMainPageCopyWithImpl<_$ViewMainPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
+    required TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+        viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
   }) {
-    return changeBottomNavigationBarItem(position);
+    return viewMainPage(gotoScreen, gotoWidget, transactionItemTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
+    TResult? Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
   }) {
-    return changeBottomNavigationBarItem?.call(position);
+    return viewMainPage?.call(gotoScreen, gotoWidget, transactionItemTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
+    TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
     required TResult orElse(),
   }) {
-    if (changeBottomNavigationBarItem != null) {
-      return changeBottomNavigationBarItem(position);
+    if (viewMainPage != null) {
+      return viewMainPage(gotoScreen, gotoWidget, transactionItemTitle);
     }
     return orElse();
   }
@@ -217,556 +215,50 @@ class _$ChangeBottomNavigationBarItem implements ChangeBottomNavigationBarItem {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
+    required TResult Function(ViewMainPage value) viewMainPage,
     required TResult Function(GotoAddTransactionPage value)
         gotoAddTransactionPage,
     required TResult Function(GotoPageWidget value) gotoPageWidget,
   }) {
-    return changeBottomNavigationBarItem(this);
+    return viewMainPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
+    TResult? Function(ViewMainPage value)? viewMainPage,
     TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult? Function(GotoPageWidget value)? gotoPageWidget,
   }) {
-    return changeBottomNavigationBarItem?.call(this);
+    return viewMainPage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
+    TResult Function(ViewMainPage value)? viewMainPage,
     TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult Function(GotoPageWidget value)? gotoPageWidget,
     required TResult orElse(),
   }) {
-    if (changeBottomNavigationBarItem != null) {
-      return changeBottomNavigationBarItem(this);
+    if (viewMainPage != null) {
+      return viewMainPage(this);
     }
     return orElse();
   }
 }
 
-abstract class ChangeBottomNavigationBarItem implements MainPageEvent {
-  const factory ChangeBottomNavigationBarItem({required final int position}) =
-      _$ChangeBottomNavigationBarItem;
+abstract class ViewMainPage implements MainPageEvent {
+  const factory ViewMainPage(
+      {required final Screen gotoScreen,
+      required final Widget gotoWidget,
+      final String? transactionItemTitle}) = _$ViewMainPage;
 
-  int get position;
+  Screen get gotoScreen;
+  Widget get gotoWidget;
+  String? get transactionItemTitle;
   @JsonKey(ignore: true)
-  _$$ChangeBottomNavigationBarItemCopyWith<_$ChangeBottomNavigationBarItem>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ViewAppbarBackButtonCopyWith<$Res> {
-  factory _$$ViewAppbarBackButtonCopyWith(_$ViewAppbarBackButton value,
-          $Res Function(_$ViewAppbarBackButton) then) =
-      __$$ViewAppbarBackButtonCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool isViewGoBackButton});
-}
-
-/// @nodoc
-class __$$ViewAppbarBackButtonCopyWithImpl<$Res>
-    extends _$MainPageEventCopyWithImpl<$Res, _$ViewAppbarBackButton>
-    implements _$$ViewAppbarBackButtonCopyWith<$Res> {
-  __$$ViewAppbarBackButtonCopyWithImpl(_$ViewAppbarBackButton _value,
-      $Res Function(_$ViewAppbarBackButton) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isViewGoBackButton = null,
-  }) {
-    return _then(_$ViewAppbarBackButton(
-      isViewGoBackButton: null == isViewGoBackButton
-          ? _value.isViewGoBackButton
-          : isViewGoBackButton // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ViewAppbarBackButton implements ViewAppbarBackButton {
-  const _$ViewAppbarBackButton({required this.isViewGoBackButton});
-
-  @override
-  final bool isViewGoBackButton;
-
-  @override
-  String toString() {
-    return 'MainPageEvent.viewAppbarBackButton(isViewGoBackButton: $isViewGoBackButton)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ViewAppbarBackButton &&
-            (identical(other.isViewGoBackButton, isViewGoBackButton) ||
-                other.isViewGoBackButton == isViewGoBackButton));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, isViewGoBackButton);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ViewAppbarBackButtonCopyWith<_$ViewAppbarBackButton> get copyWith =>
-      __$$ViewAppbarBackButtonCopyWithImpl<_$ViewAppbarBackButton>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
-    required TResult Function() gotoAddTransactionPage,
-    required TResult Function(Widget gotoWidget) gotoPageWidget,
-  }) {
-    return viewAppbarBackButton(isViewGoBackButton);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
-    TResult? Function()? gotoAddTransactionPage,
-    TResult? Function(Widget gotoWidget)? gotoPageWidget,
-  }) {
-    return viewAppbarBackButton?.call(isViewGoBackButton);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
-    TResult Function()? gotoAddTransactionPage,
-    TResult Function(Widget gotoWidget)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (viewAppbarBackButton != null) {
-      return viewAppbarBackButton(isViewGoBackButton);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
-    required TResult Function(GotoAddTransactionPage value)
-        gotoAddTransactionPage,
-    required TResult Function(GotoPageWidget value) gotoPageWidget,
-  }) {
-    return viewAppbarBackButton(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
-    TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult? Function(GotoPageWidget value)? gotoPageWidget,
-  }) {
-    return viewAppbarBackButton?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
-    TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult Function(GotoPageWidget value)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (viewAppbarBackButton != null) {
-      return viewAppbarBackButton(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ViewAppbarBackButton implements MainPageEvent {
-  const factory ViewAppbarBackButton({required final bool isViewGoBackButton}) =
-      _$ViewAppbarBackButton;
-
-  bool get isViewGoBackButton;
-  @JsonKey(ignore: true)
-  _$$ViewAppbarBackButtonCopyWith<_$ViewAppbarBackButton> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeAppBarTitleCopyWith<$Res> {
-  factory _$$ChangeAppBarTitleCopyWith(
-          _$ChangeAppBarTitle value, $Res Function(_$ChangeAppBarTitle) then) =
-      __$$ChangeAppBarTitleCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String appBarTitle});
-}
-
-/// @nodoc
-class __$$ChangeAppBarTitleCopyWithImpl<$Res>
-    extends _$MainPageEventCopyWithImpl<$Res, _$ChangeAppBarTitle>
-    implements _$$ChangeAppBarTitleCopyWith<$Res> {
-  __$$ChangeAppBarTitleCopyWithImpl(
-      _$ChangeAppBarTitle _value, $Res Function(_$ChangeAppBarTitle) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? appBarTitle = null,
-  }) {
-    return _then(_$ChangeAppBarTitle(
-      appBarTitle: null == appBarTitle
-          ? _value.appBarTitle
-          : appBarTitle // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeAppBarTitle implements ChangeAppBarTitle {
-  const _$ChangeAppBarTitle({required this.appBarTitle});
-
-  @override
-  final String appBarTitle;
-
-  @override
-  String toString() {
-    return 'MainPageEvent.changeAppBarTitle(appBarTitle: $appBarTitle)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeAppBarTitle &&
-            (identical(other.appBarTitle, appBarTitle) ||
-                other.appBarTitle == appBarTitle));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, appBarTitle);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeAppBarTitleCopyWith<_$ChangeAppBarTitle> get copyWith =>
-      __$$ChangeAppBarTitleCopyWithImpl<_$ChangeAppBarTitle>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
-    required TResult Function() gotoAddTransactionPage,
-    required TResult Function(Widget gotoWidget) gotoPageWidget,
-  }) {
-    return changeAppBarTitle(appBarTitle);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
-    TResult? Function()? gotoAddTransactionPage,
-    TResult? Function(Widget gotoWidget)? gotoPageWidget,
-  }) {
-    return changeAppBarTitle?.call(appBarTitle);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
-    TResult Function()? gotoAddTransactionPage,
-    TResult Function(Widget gotoWidget)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (changeAppBarTitle != null) {
-      return changeAppBarTitle(appBarTitle);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
-    required TResult Function(GotoAddTransactionPage value)
-        gotoAddTransactionPage,
-    required TResult Function(GotoPageWidget value) gotoPageWidget,
-  }) {
-    return changeAppBarTitle(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
-    TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult? Function(GotoPageWidget value)? gotoPageWidget,
-  }) {
-    return changeAppBarTitle?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
-    TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult Function(GotoPageWidget value)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (changeAppBarTitle != null) {
-      return changeAppBarTitle(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeAppBarTitle implements MainPageEvent {
-  const factory ChangeAppBarTitle({required final String appBarTitle}) =
-      _$ChangeAppBarTitle;
-
-  String get appBarTitle;
-  @JsonKey(ignore: true)
-  _$$ChangeAppBarTitleCopyWith<_$ChangeAppBarTitle> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeActionButtonCopyWith<$Res> {
-  factory _$$ChangeActionButtonCopyWith(_$ChangeActionButton value,
-          $Res Function(_$ChangeActionButton) then) =
-      __$$ChangeActionButtonCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AppbarActionButton appbarActionButton});
-}
-
-/// @nodoc
-class __$$ChangeActionButtonCopyWithImpl<$Res>
-    extends _$MainPageEventCopyWithImpl<$Res, _$ChangeActionButton>
-    implements _$$ChangeActionButtonCopyWith<$Res> {
-  __$$ChangeActionButtonCopyWithImpl(
-      _$ChangeActionButton _value, $Res Function(_$ChangeActionButton) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? appbarActionButton = null,
-  }) {
-    return _then(_$ChangeActionButton(
-      appbarActionButton: null == appbarActionButton
-          ? _value.appbarActionButton
-          : appbarActionButton // ignore: cast_nullable_to_non_nullable
-              as AppbarActionButton,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeActionButton implements ChangeActionButton {
-  const _$ChangeActionButton({required this.appbarActionButton});
-
-  @override
-  final AppbarActionButton appbarActionButton;
-
-  @override
-  String toString() {
-    return 'MainPageEvent.changeActionButton(appbarActionButton: $appbarActionButton)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeActionButton &&
-            (identical(other.appbarActionButton, appbarActionButton) ||
-                other.appbarActionButton == appbarActionButton));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, appbarActionButton);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeActionButtonCopyWith<_$ChangeActionButton> get copyWith =>
-      __$$ChangeActionButtonCopyWithImpl<_$ChangeActionButton>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
-    required TResult Function() gotoAddTransactionPage,
-    required TResult Function(Widget gotoWidget) gotoPageWidget,
-  }) {
-    return changeActionButton(appbarActionButton);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
-    TResult? Function()? gotoAddTransactionPage,
-    TResult? Function(Widget gotoWidget)? gotoPageWidget,
-  }) {
-    return changeActionButton?.call(appbarActionButton);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
-    TResult Function()? gotoAddTransactionPage,
-    TResult Function(Widget gotoWidget)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (changeActionButton != null) {
-      return changeActionButton(appbarActionButton);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
-    required TResult Function(GotoAddTransactionPage value)
-        gotoAddTransactionPage,
-    required TResult Function(GotoPageWidget value) gotoPageWidget,
-  }) {
-    return changeActionButton(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
-    TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult? Function(GotoPageWidget value)? gotoPageWidget,
-  }) {
-    return changeActionButton?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
-    TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
-    TResult Function(GotoPageWidget value)? gotoPageWidget,
-    required TResult orElse(),
-  }) {
-    if (changeActionButton != null) {
-      return changeActionButton(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeActionButton implements MainPageEvent {
-  const factory ChangeActionButton(
-          {required final AppbarActionButton appbarActionButton}) =
-      _$ChangeActionButton;
-
-  AppbarActionButton get appbarActionButton;
-  @JsonKey(ignore: true)
-  _$$ChangeActionButtonCopyWith<_$ChangeActionButton> get copyWith =>
+  _$$ViewMainPageCopyWith<_$ViewMainPage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -808,11 +300,9 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
+    required TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+        viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
   }) {
@@ -822,11 +312,9 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
+    TResult? Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
   }) {
@@ -836,10 +324,9 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
+    TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
     required TResult orElse(),
@@ -853,11 +340,7 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
+    required TResult Function(ViewMainPage value) viewMainPage,
     required TResult Function(GotoAddTransactionPage value)
         gotoAddTransactionPage,
     required TResult Function(GotoPageWidget value) gotoPageWidget,
@@ -868,11 +351,7 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
+    TResult? Function(ViewMainPage value)? viewMainPage,
     TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult? Function(GotoPageWidget value)? gotoPageWidget,
   }) {
@@ -882,11 +361,7 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
+    TResult Function(ViewMainPage value)? viewMainPage,
     TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult Function(GotoPageWidget value)? gotoPageWidget,
     required TResult orElse(),
@@ -967,11 +442,9 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int position) changeBottomNavigationBarItem,
-    required TResult Function(bool isViewGoBackButton) viewAppbarBackButton,
-    required TResult Function(String appBarTitle) changeAppBarTitle,
-    required TResult Function(AppbarActionButton appbarActionButton)
-        changeActionButton,
+    required TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+        viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
   }) {
@@ -981,11 +454,9 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int position)? changeBottomNavigationBarItem,
-    TResult? Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult? Function(String appBarTitle)? changeAppBarTitle,
-    TResult? Function(AppbarActionButton appbarActionButton)?
-        changeActionButton,
+    TResult? Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
   }) {
@@ -995,10 +466,9 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int position)? changeBottomNavigationBarItem,
-    TResult Function(bool isViewGoBackButton)? viewAppbarBackButton,
-    TResult Function(String appBarTitle)? changeAppBarTitle,
-    TResult Function(AppbarActionButton appbarActionButton)? changeActionButton,
+    TResult Function(
+            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+        viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
     required TResult orElse(),
@@ -1012,11 +482,7 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBottomNavigationBarItem value)
-        changeBottomNavigationBarItem,
-    required TResult Function(ViewAppbarBackButton value) viewAppbarBackButton,
-    required TResult Function(ChangeAppBarTitle value) changeAppBarTitle,
-    required TResult Function(ChangeActionButton value) changeActionButton,
+    required TResult Function(ViewMainPage value) viewMainPage,
     required TResult Function(GotoAddTransactionPage value)
         gotoAddTransactionPage,
     required TResult Function(GotoPageWidget value) gotoPageWidget,
@@ -1027,11 +493,7 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult? Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult? Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult? Function(ChangeActionButton value)? changeActionButton,
+    TResult? Function(ViewMainPage value)? viewMainPage,
     TResult? Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult? Function(GotoPageWidget value)? gotoPageWidget,
   }) {
@@ -1041,11 +503,7 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBottomNavigationBarItem value)?
-        changeBottomNavigationBarItem,
-    TResult Function(ViewAppbarBackButton value)? viewAppbarBackButton,
-    TResult Function(ChangeAppBarTitle value)? changeAppBarTitle,
-    TResult Function(ChangeActionButton value)? changeActionButton,
+    TResult Function(ViewMainPage value)? viewMainPage,
     TResult Function(GotoAddTransactionPage value)? gotoAddTransactionPage,
     TResult Function(GotoPageWidget value)? gotoPageWidget,
     required TResult orElse(),
@@ -1069,12 +527,12 @@ abstract class GotoPageWidget implements MainPageEvent {
 
 /// @nodoc
 mixin _$MainPageState {
-  int get position => throw _privateConstructorUsedError;
-  Widget get goBackButton => throw _privateConstructorUsedError;
+  int? get position => throw _privateConstructorUsedError;
+  Widget get appBarLeadingWidget => throw _privateConstructorUsedError;
   String get appBarTitle => throw _privateConstructorUsedError;
-  IconData? get icon =>
+  IconData? get actionIconButton =>
       throw _privateConstructorUsedError; // required Widget? addTransactionPage,
-  Widget? get goToWidget => throw _privateConstructorUsedError;
+  Widget get goToWidget => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainPageStateCopyWith<MainPageState> get copyWith =>
@@ -1088,11 +546,11 @@ abstract class $MainPageStateCopyWith<$Res> {
       _$MainPageStateCopyWithImpl<$Res, MainPageState>;
   @useResult
   $Res call(
-      {int position,
-      Widget goBackButton,
+      {int? position,
+      Widget appBarLeadingWidget,
       String appBarTitle,
-      IconData? icon,
-      Widget? goToWidget});
+      IconData? actionIconButton,
+      Widget goToWidget});
 }
 
 /// @nodoc
@@ -1108,33 +566,33 @@ class _$MainPageStateCopyWithImpl<$Res, $Val extends MainPageState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? position = null,
-    Object? goBackButton = null,
+    Object? position = freezed,
+    Object? appBarLeadingWidget = null,
     Object? appBarTitle = null,
-    Object? icon = freezed,
-    Object? goToWidget = freezed,
+    Object? actionIconButton = freezed,
+    Object? goToWidget = null,
   }) {
     return _then(_value.copyWith(
-      position: null == position
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as int,
-      goBackButton: null == goBackButton
-          ? _value.goBackButton
-          : goBackButton // ignore: cast_nullable_to_non_nullable
+              as int?,
+      appBarLeadingWidget: null == appBarLeadingWidget
+          ? _value.appBarLeadingWidget
+          : appBarLeadingWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
       appBarTitle: null == appBarTitle
           ? _value.appBarTitle
           : appBarTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
+      actionIconButton: freezed == actionIconButton
+          ? _value.actionIconButton
+          : actionIconButton // ignore: cast_nullable_to_non_nullable
               as IconData?,
-      goToWidget: freezed == goToWidget
+      goToWidget: null == goToWidget
           ? _value.goToWidget
           : goToWidget // ignore: cast_nullable_to_non_nullable
-              as Widget?,
+              as Widget,
     ) as $Val);
   }
 }
@@ -1148,11 +606,11 @@ abstract class _$$_MainPageStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int position,
-      Widget goBackButton,
+      {int? position,
+      Widget appBarLeadingWidget,
       String appBarTitle,
-      IconData? icon,
-      Widget? goToWidget});
+      IconData? actionIconButton,
+      Widget goToWidget});
 }
 
 /// @nodoc
@@ -1166,33 +624,33 @@ class __$$_MainPageStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? position = null,
-    Object? goBackButton = null,
+    Object? position = freezed,
+    Object? appBarLeadingWidget = null,
     Object? appBarTitle = null,
-    Object? icon = freezed,
-    Object? goToWidget = freezed,
+    Object? actionIconButton = freezed,
+    Object? goToWidget = null,
   }) {
     return _then(_$_MainPageState(
-      position: null == position
+      position: freezed == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
-              as int,
-      goBackButton: null == goBackButton
-          ? _value.goBackButton
-          : goBackButton // ignore: cast_nullable_to_non_nullable
+              as int?,
+      appBarLeadingWidget: null == appBarLeadingWidget
+          ? _value.appBarLeadingWidget
+          : appBarLeadingWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
       appBarTitle: null == appBarTitle
           ? _value.appBarTitle
           : appBarTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: freezed == icon
-          ? _value.icon
-          : icon // ignore: cast_nullable_to_non_nullable
+      actionIconButton: freezed == actionIconButton
+          ? _value.actionIconButton
+          : actionIconButton // ignore: cast_nullable_to_non_nullable
               as IconData?,
-      goToWidget: freezed == goToWidget
+      goToWidget: null == goToWidget
           ? _value.goToWidget
           : goToWidget // ignore: cast_nullable_to_non_nullable
-              as Widget?,
+              as Widget,
     ));
   }
 }
@@ -1202,26 +660,26 @@ class __$$_MainPageStateCopyWithImpl<$Res>
 class _$_MainPageState implements _MainPageState {
   const _$_MainPageState(
       {required this.position,
-      required this.goBackButton,
+      required this.appBarLeadingWidget,
       required this.appBarTitle,
-      required this.icon,
+      required this.actionIconButton,
       required this.goToWidget});
 
   @override
-  final int position;
+  final int? position;
   @override
-  final Widget goBackButton;
+  final Widget appBarLeadingWidget;
   @override
   final String appBarTitle;
   @override
-  final IconData? icon;
+  final IconData? actionIconButton;
 // required Widget? addTransactionPage,
   @override
-  final Widget? goToWidget;
+  final Widget goToWidget;
 
   @override
   String toString() {
-    return 'MainPageState(position: $position, goBackButton: $goBackButton, appBarTitle: $appBarTitle, icon: $icon, goToWidget: $goToWidget)';
+    return 'MainPageState(position: $position, appBarLeadingWidget: $appBarLeadingWidget, appBarTitle: $appBarTitle, actionIconButton: $actionIconButton, goToWidget: $goToWidget)';
   }
 
   @override
@@ -1231,18 +689,19 @@ class _$_MainPageState implements _MainPageState {
             other is _$_MainPageState &&
             (identical(other.position, position) ||
                 other.position == position) &&
-            (identical(other.goBackButton, goBackButton) ||
-                other.goBackButton == goBackButton) &&
+            (identical(other.appBarLeadingWidget, appBarLeadingWidget) ||
+                other.appBarLeadingWidget == appBarLeadingWidget) &&
             (identical(other.appBarTitle, appBarTitle) ||
                 other.appBarTitle == appBarTitle) &&
-            (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.actionIconButton, actionIconButton) ||
+                other.actionIconButton == actionIconButton) &&
             (identical(other.goToWidget, goToWidget) ||
                 other.goToWidget == goToWidget));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, position, goBackButton, appBarTitle, icon, goToWidget);
+  int get hashCode => Object.hash(runtimeType, position, appBarLeadingWidget,
+      appBarTitle, actionIconButton, goToWidget);
 
   @JsonKey(ignore: true)
   @override
@@ -1253,22 +712,22 @@ class _$_MainPageState implements _MainPageState {
 
 abstract class _MainPageState implements MainPageState {
   const factory _MainPageState(
-      {required final int position,
-      required final Widget goBackButton,
+      {required final int? position,
+      required final Widget appBarLeadingWidget,
       required final String appBarTitle,
-      required final IconData? icon,
-      required final Widget? goToWidget}) = _$_MainPageState;
+      required final IconData? actionIconButton,
+      required final Widget goToWidget}) = _$_MainPageState;
 
   @override
-  int get position;
+  int? get position;
   @override
-  Widget get goBackButton;
+  Widget get appBarLeadingWidget;
   @override
   String get appBarTitle;
   @override
-  IconData? get icon;
+  IconData? get actionIconButton;
   @override // required Widget? addTransactionPage,
-  Widget? get goToWidget;
+  Widget get goToWidget;
   @override
   @JsonKey(ignore: true)
   _$$_MainPageStateCopyWith<_$_MainPageState> get copyWith =>

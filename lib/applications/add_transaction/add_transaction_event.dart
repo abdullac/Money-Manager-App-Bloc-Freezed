@@ -4,6 +4,17 @@ part of 'add_transaction_bloc.dart';
 class AddTransactionEvent with _$AddTransactionEvent {
   const factory AddTransactionEvent.saveTransaction({
     required TransactionModel transactionModel,
-    // required Widget gotoAfterSaveWidget,
   }) = SaveTransaction;
+
+  const factory AddTransactionEvent.radioButtonUiChange({
+    required TransactionType? transactionType,
+  }) = RadioButtonUiChange;
+
+  const factory AddTransactionEvent.dropDownButtonUiChange({
+    required String? dropDownButtonValue,
+  }) = DropDownButtonUiChange;
+
+   const factory AddTransactionEvent.selectDateUiChange({
+    required DateTime? selectedDate,
+  }) = SelectDateUiChange;
 }
