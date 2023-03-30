@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_manger_bloc/applications/add_transaction/add_transaction_bloc.dart';
+import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
+import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 import 'package:money_manger_bloc/presentations/add_transaction_screen/add_transaction_screen.dart';
 import 'package:money_manger_bloc/presentations/category_screen/screen_category.dart';
@@ -19,7 +21,13 @@ enum ViewedScreen {
   transactionView,
 }
 
-int selectedIndex = 0;
+enum AppbarActionButton {
+  add,
+  save,
+  update,
+}
+
+// int selectedIndex = 0;
 
 class MainPage extends StatelessWidget {
   const MainPage({
@@ -30,101 +38,141 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<MainPageBloc>(context)
+          .add(const ChangeAppBarTitle(appBarTitle: "Money Manager App M"));
+      BlocProvider.of<MainPageBloc>(context).add(
+          const ChangeActionButton(appbarActionButton: AppbarActionButton.add));
+    });
     return Scaffold(
       appBar: AppBar(
-        leading: null,
-        title: const Text("Money Manager MM"),
+        leading: BlocBuilder<MainPageBloc, MainPageState>(
+          builder: (context, state) {
+            return state.goBackButton;
+          },
+        ),
+        title: BlocBuilder<MainPageBloc, MainPageState>(
+          builder: (context, state) {
+            return Text(state.appBarTitle);
+          },
+        ),
         actions: [
           IconButton(
             onPressed: () {
               // appBar action Button pressed
               if (viewedScreen == ViewedScreen.transactions) {
+                BlocProvider.of<MainPageBloc>(context)
+                    .add(const GotoAddTransactionPage());
               } else if (viewedScreen == ViewedScreen.incomeCategory) {
+                BlocProvider.of<MainPageBloc>(context)
+                    .add(const GotoAddTransactionPage());
               } else if (viewedScreen == ViewedScreen.expenseCategory) {
+                BlocProvider.of<MainPageBloc>(context)
+                    .add(const GotoAddTransactionPage());
               } else if (viewedScreen == ViewedScreen.incomeTransactionList) {
+                BlocProvider.of<MainPageBloc>(context)
+                    .add(const GotoAddTransactionPage());
               } else if (viewedScreen == ViewedScreen.expenseTransactionList) {
+                BlocProvider.of<MainPageBloc>(context)
+                    .add(const GotoAddTransactionPage());
               } else if (viewedScreen == ViewedScreen.addTransaction) {
-                /// add transaction
-
-                int transactionId = AddTransactionScreen.transactionId;
-                String amount =
-                    AddTransactionScreen.amountEditingController.text;
-                TransactionType? transactionType =
-                    AddTransactionScreen.radioValue;
-                String? category = AddTransactionScreen.dropdownButtonValue;
-                DateTime? date = AddTransactionScreen.selectedDate;
-                String description =
-                    AddTransactionScreen.descriptionEditingController.text;
-
-                if (amount != "" &&
-                    transactionType != null &&
-                    category != null &&
-                    date != null &&
-                    date.toString() != "Select Date" &&
-                    description != "") {
-                  BlocProvider.of<AddTransactionBloc>(context).add(
-                    SaveTransaction(
-                      transactionModel: TransactionModel(
-                        transactionId: AddTransactionScreen.transactionId,
-                        amount:
-                            AddTransactionScreen.amountEditingController.text,
-                        transactionType: AddTransactionScreen.radioValue,
-                        category: AddTransactionScreen.dropdownButtonValue,
-                        date: AddTransactionScreen.selectedDate,
-                        description: AddTransactionScreen
-                            .descriptionEditingController.text,
-                      ),
-                    ),
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text(
-                    "please give information correctly",
-                    textAlign: TextAlign.center,
-                  )));
-                }
+                addTransaction(context);
               } else if (viewedScreen == ViewedScreen.updateTransaction) {
               } else if (viewedScreen == ViewedScreen.transactionView) {
               } else {
                 ///
               }
             },
-            icon: const Icon(Icons.add_card),
+            icon: BlocBuilder<MainPageBloc, MainPageState>(
+              builder: (context, state) {
+                return Icon(state.icon);
+              },
+            ),
           )
         ],
       ),
-      body: const SafeArea(
-        child:
-            // selectedIndex == 0 ? const ScreenTransactions() : ScreenCategory(),
-            // ScreenCategoryTransactionList(),
-            // ScreenTransactionView(),
-            AddTransactionScreen(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            // icon: Icon(Icons.money),
-            icon: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: const [
-                Icon(Icons.arrow_downward),
-                Icon(Icons.arrow_upward),
-              ],
-            ),
-            label: "Transactions",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: "Category",
-          ),
-        ],
-        onTap: (value) {
-          //
-          selectedIndex = value;
+      body: BlocBuilder<MainPageBloc, MainPageState>(
+        builder: (context, state) {
+          return state.goToWidget ??
+              SafeArea(
+                child: state.position == 0
+                    ? const ScreenTransactions()
+                    : const ScreenCategory(),
+                // ScreenCategoryTransactionList(),
+                // ScreenTransactionView(),
+                // AddTransactionScreen(),
+              );
         },
-        currentIndex: selectedIndex,
+      ),
+      bottomNavigationBar: BlocBuilder<MainPageBloc, MainPageState>(
+        builder: (context, state) {
+          // selectedIndex = state.position;
+          return BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: const [
+                    Icon(Icons.arrow_downward),
+                    Icon(Icons.arrow_upward),
+                  ],
+                ),
+                label: "Transactions",
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.category),
+                label: "Category",
+              ),
+            ],
+            onTap: (value) {
+              //
+              BlocProvider.of<MainPageBloc>(context)
+                  .add(ChangeBottomNavigationBarItem(position: value));
+            },
+            // currentIndex: selectedIndex,
+            currentIndex: state.position,
+          );
+        },
       ),
     );
+  }
+
+  void addTransaction(BuildContext context) {
+    int transactionId = AddTransactionScreen.transactionId;
+    String amount = AddTransactionScreen.amountEditingController.text;
+    TransactionType? transactionType = AddTransactionScreen.radioValue;
+    String? category = AddTransactionScreen.dropdownButtonValue;
+    DateTime? date = AddTransactionScreen.selectedDate;
+    String description = AddTransactionScreen.descriptionEditingController.text;
+
+    if (amount != "" &&
+        transactionType != null &&
+        category != null &&
+        date != null &&
+        date.toString() != "Select Date" &&
+        description != "") {
+      BlocProvider.of<AddTransactionBloc>(context).add(
+        SaveTransaction(
+          transactionModel: TransactionModel(
+            transactionId: transactionId,
+            amount: amount,
+            transactionType: transactionType,
+            category: category,
+            date: date,
+            description: description,
+          ),
+          // gotoAfterSaveWidget: const ScreenTransactions(),
+        ),
+      );
+      BlocProvider.of<MainPageBloc>(context)
+          .add(const GotoPageWidget(gotoWidget: ScreenTransactions()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+        "please give information correctly",
+        textAlign: TextAlign.center,
+      )));
+    }
   }
 }

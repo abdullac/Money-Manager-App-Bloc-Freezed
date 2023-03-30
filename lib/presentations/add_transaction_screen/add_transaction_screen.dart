@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
 import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
@@ -18,6 +20,14 @@ class AddTransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<MainPageBloc>(context)
+          .add(const ChangeAppBarTitle(appBarTitle: "Add Transaction"));
+      BlocProvider.of<MainPageBloc>(context).add(const ChangeActionButton(
+          appbarActionButton: AppbarActionButton.save));
+      BlocProvider.of<MainPageBloc>(context)
+          .add(const ViewAppbarBackButton(isViewGoBackButton: true));
+    });
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -183,9 +193,8 @@ class SelectDateCalender extends StatelessWidget {
             AddTransactionScreen.selectedDate == null
                 ? "Select Date"
                 : (DateFormat("dd-MM-yyyy").format(
-                    AddTransactionScreen.selectedDate
-                     ?? DateTime.now()
-                     )).toString(),
+                        AddTransactionScreen.selectedDate ?? DateTime.now()))
+                    .toString(),
           ),
         ],
       ),

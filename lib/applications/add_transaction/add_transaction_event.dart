@@ -4,5 +4,6 @@ part of 'add_transaction_bloc.dart';
 class AddTransactionEvent with _$AddTransactionEvent {
   const factory AddTransactionEvent.saveTransaction({
     required TransactionModel transactionModel,
+    // required Widget gotoAfterSaveWidget,
   }) = SaveTransaction;
 }

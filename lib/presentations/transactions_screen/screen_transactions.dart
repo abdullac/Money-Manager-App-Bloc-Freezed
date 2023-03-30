@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
 
 class ScreenTransactions extends StatelessWidget {
   const ScreenTransactions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<TransactionsBloc>(context)
+          .add(const ViewTransactionList());
+    });
     return const TransactionListView(
       isTransactionScreen: true,
       transactionType: TransactionType.expense,
@@ -23,12 +29,16 @@ class TransactionListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) => ListItemTileWidget(
-        isTransactionScreen: true,
-        transactionType: transactionType,
-      ),
-      itemCount: 10,
+    return BlocBuilder<TransactionsBloc, TransactionsState>(
+      builder: (context, transactionsState) {
+        return ListView.builder(
+          itemBuilder: (context, index) => ListItemTileWidget(
+            isTransactionScreen: true,
+            transactionType: transactionType,
+          ),
+          itemCount: transactionsState.transactionModelList.length,
+        );
+      },
     );
   }
 }
