@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:money_manger_bloc/applications/transaction_view/transaction_view_bloc.dart';
 import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
-import 'package:money_manger_bloc/main.dart';
 import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 import 'package:money_manger_bloc/presentations/transaction_view-screen/screen_transaction_view.dart';
 

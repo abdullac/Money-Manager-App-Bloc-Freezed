@@ -11,6 +11,8 @@ import 'package:money_manger_bloc/presentations/transactions_screen/screen_trans
 
 // late int transactionId;
 
+TextEditingController alertDialogTextFieldController = TextEditingController();
+
 class AddTransactionScreen extends StatelessWidget {
   const AddTransactionScreen({Key? key}) : super(key: key);
   static int transactionId = DateTime.now().microsecondsSinceEpoch;
@@ -142,14 +144,15 @@ class CategoryDropdownListButton extends StatelessWidget {
   // String apple = "apple";
 
   static List<TransactionModel> tempTransactionModelList = [];
+  static Set<String> listOfCategoryItems = {
+    "Add New Category",
+    "mango",
+    "apple",
+  };
 
   Set<String> categoryItems() {
     TransactionType? transactionType = AddTransactionScreen.radioValue;
-    Set<String> listOfCategoryItems = {
-      "Add New Category",
-      "mango",
-      "apple",
-    };
+
     // final transactionModelList = await TransactionsRepo.getAllFromStorage();
 
     tempTransactionModelList.forEach((element) {
@@ -241,7 +244,8 @@ class CategoryDropdownListButton extends StatelessWidget {
               // showInSnackBar(context);
 
               showDialog(
-                  context: context, builder: (context) => showAlertDialog());
+                  context: context,
+                  builder: (context) => showAlertDialog(context));
             }
           },
         );
@@ -319,34 +323,42 @@ class DescriptionTextWidget extends StatelessWidget {
   }
 }
 
-void showInSnackBar(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: const Text("value"),
-      action: SnackBarAction(
-        label: 'Dissmiss',
-        textColor: Colors.yellow,
-        onPressed: () {
-          //  Navigator.of(context).pop();
-          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        },
-      ),
-      duration: const Duration(minutes: 5)));
-}
+// void showInSnackBar(BuildContext context) {
+//   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//       content: const Text("value"),
+//       action: SnackBarAction(
+//         label: 'Dissmiss',
+//         textColor: Colors.yellow,
+//         onPressed: () {
+//           //  Navigator.of(context).pop();
+//           ScaffoldMessenger.of(context).hideCurrentSnackBar();
+//         },
+//       ),
+//       duration: const Duration(minutes: 5)));
+// }
 
-Widget showAlertDialog() {
+Widget showAlertDialog(
+  BuildContext context,
+) {
   return AlertDialog(
     title: const Text("Add new Category"),
-    content: const Center(
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-        ),
+    content: TextField(
+      controller: alertDialogTextFieldController,
+      decoration: const InputDecoration(
+        border: OutlineInputBorder(),
       ),
     ),
     actions: [
       ElevatedButton(
         onPressed: () {
           // alert Dialog button pressed
+          CategoryDropdownListButton.listOfCategoryItems
+              .add(alertDialogTextFieldController.text);
+          BlocProvider.of<AddTransactionBloc>(context).add(
+              DropDownButtonUiChange(
+                  dropDownButtonValue: alertDialogTextFieldController.text));
+
+          Navigator.of(context).pop();
         },
         child: const Text("Ok"),
       )

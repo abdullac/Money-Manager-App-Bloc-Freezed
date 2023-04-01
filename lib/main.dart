@@ -5,15 +5,10 @@ import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
 import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 
-
 /// this app works with temperary local server. - https://github.com/abdullac/note-app-nest-js.git
-
 
 import 'presentations/main_page/page_main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-// List<TransactionModel> transactionModelList = [];
-// List<TransactionModel> tempTransactionModelList = [];
 
 void main() {
   runApp(const MyApp());
