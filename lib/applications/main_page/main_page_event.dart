@@ -6,7 +6,7 @@ class MainPageEvent with _$MainPageEvent {
   const factory MainPageEvent.viewMainPage({
     required Screen gotoScreen,
     required Widget gotoWidget,
-    String? transactionItemTitle,
+    String? transactionCategoryTitle,
   }) = ViewMainPage;
 
 

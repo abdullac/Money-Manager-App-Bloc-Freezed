@@ -16,42 +16,63 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CategoryEvent {
-  int get position => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int position) changeCategoryScreen,
+    required TResult Function() goToIncomeCatogoryPage,
+    required TResult Function() goToExpenseCatogoryPage,
+    required TResult Function(TransactionType transactionType, String category)
+        viewTransactionListByCatogory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int position)? changeCategoryScreen,
+    TResult? Function()? goToIncomeCatogoryPage,
+    TResult? Function()? goToExpenseCatogoryPage,
+    TResult? Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int position)? changeCategoryScreen,
+    TResult Function()? goToIncomeCatogoryPage,
+    TResult Function()? goToExpenseCatogoryPage,
+    TResult Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeCategoryScreen value) changeCategoryScreen,
+    required TResult Function(GoToIncomeCatogoryPage value)
+        goToIncomeCatogoryPage,
+    required TResult Function(GoToExpenseCatogoryPage value)
+        goToExpenseCatogoryPage,
+    required TResult Function(ViewTransactionListByCatogory value)
+        viewTransactionListByCatogory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult? Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult? Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult? Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CategoryEventCopyWith<CategoryEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +81,6 @@ abstract class $CategoryEventCopyWith<$Res> {
   factory $CategoryEventCopyWith(
           CategoryEvent value, $Res Function(CategoryEvent) then) =
       _$CategoryEventCopyWithImpl<$Res, CategoryEvent>;
-  @useResult
-  $Res call({int position});
 }
 
 /// @nodoc
@@ -73,28 +92,13 @@ class _$CategoryEventCopyWithImpl<$Res, $Val extends CategoryEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? position = null,
-  }) {
-    return _then(_value.copyWith(
-      position: null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ChangeCategoryScreenCopyWith<$Res>
-    implements $CategoryEventCopyWith<$Res> {
+abstract class _$$ChangeCategoryScreenCopyWith<$Res> {
   factory _$$ChangeCategoryScreenCopyWith(_$ChangeCategoryScreen value,
           $Res Function(_$ChangeCategoryScreen) then) =
       __$$ChangeCategoryScreenCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int position});
 }
@@ -157,6 +161,10 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int position) changeCategoryScreen,
+    required TResult Function() goToIncomeCatogoryPage,
+    required TResult Function() goToExpenseCatogoryPage,
+    required TResult Function(TransactionType transactionType, String category)
+        viewTransactionListByCatogory,
   }) {
     return changeCategoryScreen(position);
   }
@@ -165,6 +173,10 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int position)? changeCategoryScreen,
+    TResult? Function()? goToIncomeCatogoryPage,
+    TResult? Function()? goToExpenseCatogoryPage,
+    TResult? Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
   }) {
     return changeCategoryScreen?.call(position);
   }
@@ -173,6 +185,10 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int position)? changeCategoryScreen,
+    TResult Function()? goToIncomeCatogoryPage,
+    TResult Function()? goToExpenseCatogoryPage,
+    TResult Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
     required TResult orElse(),
   }) {
     if (changeCategoryScreen != null) {
@@ -185,6 +201,12 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeCategoryScreen value) changeCategoryScreen,
+    required TResult Function(GoToIncomeCatogoryPage value)
+        goToIncomeCatogoryPage,
+    required TResult Function(GoToExpenseCatogoryPage value)
+        goToExpenseCatogoryPage,
+    required TResult Function(ViewTransactionListByCatogory value)
+        viewTransactionListByCatogory,
   }) {
     return changeCategoryScreen(this);
   }
@@ -193,6 +215,10 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult? Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult? Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult? Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
   }) {
     return changeCategoryScreen?.call(this);
   }
@@ -201,6 +227,10 @@ class _$ChangeCategoryScreen implements ChangeCategoryScreen {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
     required TResult orElse(),
   }) {
     if (changeCategoryScreen != null) {
@@ -214,12 +244,427 @@ abstract class ChangeCategoryScreen implements CategoryEvent {
   const factory ChangeCategoryScreen({required final int position}) =
       _$ChangeCategoryScreen;
 
-  @override
   int get position;
-  @override
   @JsonKey(ignore: true)
   _$$ChangeCategoryScreenCopyWith<_$ChangeCategoryScreen> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GoToIncomeCatogoryPageCopyWith<$Res> {
+  factory _$$GoToIncomeCatogoryPageCopyWith(_$GoToIncomeCatogoryPage value,
+          $Res Function(_$GoToIncomeCatogoryPage) then) =
+      __$$GoToIncomeCatogoryPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GoToIncomeCatogoryPageCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$GoToIncomeCatogoryPage>
+    implements _$$GoToIncomeCatogoryPageCopyWith<$Res> {
+  __$$GoToIncomeCatogoryPageCopyWithImpl(_$GoToIncomeCatogoryPage _value,
+      $Res Function(_$GoToIncomeCatogoryPage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GoToIncomeCatogoryPage implements GoToIncomeCatogoryPage {
+  const _$GoToIncomeCatogoryPage();
+
+  @override
+  String toString() {
+    return 'CategoryEvent.goToIncomeCatogoryPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GoToIncomeCatogoryPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int position) changeCategoryScreen,
+    required TResult Function() goToIncomeCatogoryPage,
+    required TResult Function() goToExpenseCatogoryPage,
+    required TResult Function(TransactionType transactionType, String category)
+        viewTransactionListByCatogory,
+  }) {
+    return goToIncomeCatogoryPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int position)? changeCategoryScreen,
+    TResult? Function()? goToIncomeCatogoryPage,
+    TResult? Function()? goToExpenseCatogoryPage,
+    TResult? Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+  }) {
+    return goToIncomeCatogoryPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int position)? changeCategoryScreen,
+    TResult Function()? goToIncomeCatogoryPage,
+    TResult Function()? goToExpenseCatogoryPage,
+    TResult Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (goToIncomeCatogoryPage != null) {
+      return goToIncomeCatogoryPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChangeCategoryScreen value) changeCategoryScreen,
+    required TResult Function(GoToIncomeCatogoryPage value)
+        goToIncomeCatogoryPage,
+    required TResult Function(GoToExpenseCatogoryPage value)
+        goToExpenseCatogoryPage,
+    required TResult Function(ViewTransactionListByCatogory value)
+        viewTransactionListByCatogory,
+  }) {
+    return goToIncomeCatogoryPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult? Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult? Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult? Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+  }) {
+    return goToIncomeCatogoryPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (goToIncomeCatogoryPage != null) {
+      return goToIncomeCatogoryPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GoToIncomeCatogoryPage implements CategoryEvent {
+  const factory GoToIncomeCatogoryPage() = _$GoToIncomeCatogoryPage;
+}
+
+/// @nodoc
+abstract class _$$GoToExpenseCatogoryPageCopyWith<$Res> {
+  factory _$$GoToExpenseCatogoryPageCopyWith(_$GoToExpenseCatogoryPage value,
+          $Res Function(_$GoToExpenseCatogoryPage) then) =
+      __$$GoToExpenseCatogoryPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GoToExpenseCatogoryPageCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$GoToExpenseCatogoryPage>
+    implements _$$GoToExpenseCatogoryPageCopyWith<$Res> {
+  __$$GoToExpenseCatogoryPageCopyWithImpl(_$GoToExpenseCatogoryPage _value,
+      $Res Function(_$GoToExpenseCatogoryPage) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GoToExpenseCatogoryPage implements GoToExpenseCatogoryPage {
+  const _$GoToExpenseCatogoryPage();
+
+  @override
+  String toString() {
+    return 'CategoryEvent.goToExpenseCatogoryPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GoToExpenseCatogoryPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int position) changeCategoryScreen,
+    required TResult Function() goToIncomeCatogoryPage,
+    required TResult Function() goToExpenseCatogoryPage,
+    required TResult Function(TransactionType transactionType, String category)
+        viewTransactionListByCatogory,
+  }) {
+    return goToExpenseCatogoryPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int position)? changeCategoryScreen,
+    TResult? Function()? goToIncomeCatogoryPage,
+    TResult? Function()? goToExpenseCatogoryPage,
+    TResult? Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+  }) {
+    return goToExpenseCatogoryPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int position)? changeCategoryScreen,
+    TResult Function()? goToIncomeCatogoryPage,
+    TResult Function()? goToExpenseCatogoryPage,
+    TResult Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (goToExpenseCatogoryPage != null) {
+      return goToExpenseCatogoryPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChangeCategoryScreen value) changeCategoryScreen,
+    required TResult Function(GoToIncomeCatogoryPage value)
+        goToIncomeCatogoryPage,
+    required TResult Function(GoToExpenseCatogoryPage value)
+        goToExpenseCatogoryPage,
+    required TResult Function(ViewTransactionListByCatogory value)
+        viewTransactionListByCatogory,
+  }) {
+    return goToExpenseCatogoryPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult? Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult? Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult? Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+  }) {
+    return goToExpenseCatogoryPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (goToExpenseCatogoryPage != null) {
+      return goToExpenseCatogoryPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GoToExpenseCatogoryPage implements CategoryEvent {
+  const factory GoToExpenseCatogoryPage() = _$GoToExpenseCatogoryPage;
+}
+
+/// @nodoc
+abstract class _$$ViewTransactionListByCatogoryCopyWith<$Res> {
+  factory _$$ViewTransactionListByCatogoryCopyWith(
+          _$ViewTransactionListByCatogory value,
+          $Res Function(_$ViewTransactionListByCatogory) then) =
+      __$$ViewTransactionListByCatogoryCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TransactionType transactionType, String category});
+}
+
+/// @nodoc
+class __$$ViewTransactionListByCatogoryCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$ViewTransactionListByCatogory>
+    implements _$$ViewTransactionListByCatogoryCopyWith<$Res> {
+  __$$ViewTransactionListByCatogoryCopyWithImpl(
+      _$ViewTransactionListByCatogory _value,
+      $Res Function(_$ViewTransactionListByCatogory) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transactionType = null,
+    Object? category = null,
+  }) {
+    return _then(_$ViewTransactionListByCatogory(
+      transactionType: null == transactionType
+          ? _value.transactionType
+          : transactionType // ignore: cast_nullable_to_non_nullable
+              as TransactionType,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ViewTransactionListByCatogory implements ViewTransactionListByCatogory {
+  const _$ViewTransactionListByCatogory(
+      {required this.transactionType, required this.category});
+
+// required int position,
+  @override
+  final TransactionType transactionType;
+  @override
+  final String category;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.viewTransactionListByCatogory(transactionType: $transactionType, category: $category)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ViewTransactionListByCatogory &&
+            (identical(other.transactionType, transactionType) ||
+                other.transactionType == transactionType) &&
+            (identical(other.category, category) ||
+                other.category == category));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transactionType, category);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ViewTransactionListByCatogoryCopyWith<_$ViewTransactionListByCatogory>
+      get copyWith => __$$ViewTransactionListByCatogoryCopyWithImpl<
+          _$ViewTransactionListByCatogory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int position) changeCategoryScreen,
+    required TResult Function() goToIncomeCatogoryPage,
+    required TResult Function() goToExpenseCatogoryPage,
+    required TResult Function(TransactionType transactionType, String category)
+        viewTransactionListByCatogory,
+  }) {
+    return viewTransactionListByCatogory(transactionType, category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int position)? changeCategoryScreen,
+    TResult? Function()? goToIncomeCatogoryPage,
+    TResult? Function()? goToExpenseCatogoryPage,
+    TResult? Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+  }) {
+    return viewTransactionListByCatogory?.call(transactionType, category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int position)? changeCategoryScreen,
+    TResult Function()? goToIncomeCatogoryPage,
+    TResult Function()? goToExpenseCatogoryPage,
+    TResult Function(TransactionType transactionType, String category)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (viewTransactionListByCatogory != null) {
+      return viewTransactionListByCatogory(transactionType, category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChangeCategoryScreen value) changeCategoryScreen,
+    required TResult Function(GoToIncomeCatogoryPage value)
+        goToIncomeCatogoryPage,
+    required TResult Function(GoToExpenseCatogoryPage value)
+        goToExpenseCatogoryPage,
+    required TResult Function(ViewTransactionListByCatogory value)
+        viewTransactionListByCatogory,
+  }) {
+    return viewTransactionListByCatogory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult? Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult? Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult? Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+  }) {
+    return viewTransactionListByCatogory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChangeCategoryScreen value)? changeCategoryScreen,
+    TResult Function(GoToIncomeCatogoryPage value)? goToIncomeCatogoryPage,
+    TResult Function(GoToExpenseCatogoryPage value)? goToExpenseCatogoryPage,
+    TResult Function(ViewTransactionListByCatogory value)?
+        viewTransactionListByCatogory,
+    required TResult orElse(),
+  }) {
+    if (viewTransactionListByCatogory != null) {
+      return viewTransactionListByCatogory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ViewTransactionListByCatogory implements CategoryEvent {
+  const factory ViewTransactionListByCatogory(
+      {required final TransactionType transactionType,
+      required final String category}) = _$ViewTransactionListByCatogory;
+
+// required int position,
+  TransactionType get transactionType;
+  String get category;
+  @JsonKey(ignore: true)
+  _$$ViewTransactionListByCatogoryCopyWith<_$ViewTransactionListByCatogory>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -227,6 +672,13 @@ mixin _$CategoryState {
   int get position => throw _privateConstructorUsedError;
   List<TransactionModel> get transactionsModelList =>
       throw _privateConstructorUsedError;
+  List<String?> get categoryList =>
+      throw _privateConstructorUsedError; // required Set<TransactionModel> transactionModelSet,
+  TransactionType get transactionType => throw _privateConstructorUsedError;
+  Widget? get categoryTransactionsListPage =>
+      throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  bool? get isListByCategory => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryStateCopyWith<CategoryState> get copyWith =>
@@ -239,7 +691,14 @@ abstract class $CategoryStateCopyWith<$Res> {
           CategoryState value, $Res Function(CategoryState) then) =
       _$CategoryStateCopyWithImpl<$Res, CategoryState>;
   @useResult
-  $Res call({int position, List<TransactionModel> transactionsModelList});
+  $Res call(
+      {int position,
+      List<TransactionModel> transactionsModelList,
+      List<String?> categoryList,
+      TransactionType transactionType,
+      Widget? categoryTransactionsListPage,
+      String? category,
+      bool? isListByCategory});
 }
 
 /// @nodoc
@@ -257,6 +716,11 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
   $Res call({
     Object? position = null,
     Object? transactionsModelList = null,
+    Object? categoryList = null,
+    Object? transactionType = null,
+    Object? categoryTransactionsListPage = freezed,
+    Object? category = freezed,
+    Object? isListByCategory = freezed,
   }) {
     return _then(_value.copyWith(
       position: null == position
@@ -267,6 +731,26 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.transactionsModelList
           : transactionsModelList // ignore: cast_nullable_to_non_nullable
               as List<TransactionModel>,
+      categoryList: null == categoryList
+          ? _value.categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<String?>,
+      transactionType: null == transactionType
+          ? _value.transactionType
+          : transactionType // ignore: cast_nullable_to_non_nullable
+              as TransactionType,
+      categoryTransactionsListPage: freezed == categoryTransactionsListPage
+          ? _value.categoryTransactionsListPage
+          : categoryTransactionsListPage // ignore: cast_nullable_to_non_nullable
+              as Widget?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isListByCategory: freezed == isListByCategory
+          ? _value.isListByCategory
+          : isListByCategory // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -279,7 +763,14 @@ abstract class _$$_CategoryStateCopyWith<$Res>
       __$$_CategoryStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int position, List<TransactionModel> transactionsModelList});
+  $Res call(
+      {int position,
+      List<TransactionModel> transactionsModelList,
+      List<String?> categoryList,
+      TransactionType transactionType,
+      Widget? categoryTransactionsListPage,
+      String? category,
+      bool? isListByCategory});
 }
 
 /// @nodoc
@@ -295,6 +786,11 @@ class __$$_CategoryStateCopyWithImpl<$Res>
   $Res call({
     Object? position = null,
     Object? transactionsModelList = null,
+    Object? categoryList = null,
+    Object? transactionType = null,
+    Object? categoryTransactionsListPage = freezed,
+    Object? category = freezed,
+    Object? isListByCategory = freezed,
   }) {
     return _then(_$_CategoryState(
       position: null == position
@@ -305,6 +801,26 @@ class __$$_CategoryStateCopyWithImpl<$Res>
           ? _value._transactionsModelList
           : transactionsModelList // ignore: cast_nullable_to_non_nullable
               as List<TransactionModel>,
+      categoryList: null == categoryList
+          ? _value._categoryList
+          : categoryList // ignore: cast_nullable_to_non_nullable
+              as List<String?>,
+      transactionType: null == transactionType
+          ? _value.transactionType
+          : transactionType // ignore: cast_nullable_to_non_nullable
+              as TransactionType,
+      categoryTransactionsListPage: freezed == categoryTransactionsListPage
+          ? _value.categoryTransactionsListPage
+          : categoryTransactionsListPage // ignore: cast_nullable_to_non_nullable
+              as Widget?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isListByCategory: freezed == isListByCategory
+          ? _value.isListByCategory
+          : isListByCategory // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -314,8 +830,14 @@ class __$$_CategoryStateCopyWithImpl<$Res>
 class _$_CategoryState implements _CategoryState {
   const _$_CategoryState(
       {required this.position,
-      required final List<TransactionModel> transactionsModelList})
-      : _transactionsModelList = transactionsModelList;
+      required final List<TransactionModel> transactionsModelList,
+      required final List<String?> categoryList,
+      required this.transactionType,
+      required this.categoryTransactionsListPage,
+      required this.category,
+      required this.isListByCategory})
+      : _transactionsModelList = transactionsModelList,
+        _categoryList = categoryList;
 
   @override
   final int position;
@@ -328,9 +850,27 @@ class _$_CategoryState implements _CategoryState {
     return EqualUnmodifiableListView(_transactionsModelList);
   }
 
+  final List<String?> _categoryList;
+  @override
+  List<String?> get categoryList {
+    if (_categoryList is EqualUnmodifiableListView) return _categoryList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categoryList);
+  }
+
+// required Set<TransactionModel> transactionModelSet,
+  @override
+  final TransactionType transactionType;
+  @override
+  final Widget? categoryTransactionsListPage;
+  @override
+  final String? category;
+  @override
+  final bool? isListByCategory;
+
   @override
   String toString() {
-    return 'CategoryState(position: $position, transactionsModelList: $transactionsModelList)';
+    return 'CategoryState(position: $position, transactionsModelList: $transactionsModelList, categoryList: $categoryList, transactionType: $transactionType, categoryTransactionsListPage: $categoryTransactionsListPage, category: $category, isListByCategory: $isListByCategory)';
   }
 
   @override
@@ -341,12 +881,31 @@ class _$_CategoryState implements _CategoryState {
             (identical(other.position, position) ||
                 other.position == position) &&
             const DeepCollectionEquality()
-                .equals(other._transactionsModelList, _transactionsModelList));
+                .equals(other._transactionsModelList, _transactionsModelList) &&
+            const DeepCollectionEquality()
+                .equals(other._categoryList, _categoryList) &&
+            (identical(other.transactionType, transactionType) ||
+                other.transactionType == transactionType) &&
+            (identical(other.categoryTransactionsListPage,
+                    categoryTransactionsListPage) ||
+                other.categoryTransactionsListPage ==
+                    categoryTransactionsListPage) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.isListByCategory, isListByCategory) ||
+                other.isListByCategory == isListByCategory));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, position,
-      const DeepCollectionEquality().hash(_transactionsModelList));
+  int get hashCode => Object.hash(
+      runtimeType,
+      position,
+      const DeepCollectionEquality().hash(_transactionsModelList),
+      const DeepCollectionEquality().hash(_categoryList),
+      transactionType,
+      categoryTransactionsListPage,
+      category,
+      isListByCategory);
 
   @JsonKey(ignore: true)
   @override
@@ -357,14 +916,28 @@ class _$_CategoryState implements _CategoryState {
 
 abstract class _CategoryState implements CategoryState {
   const factory _CategoryState(
-          {required final int position,
-          required final List<TransactionModel> transactionsModelList}) =
-      _$_CategoryState;
+      {required final int position,
+      required final List<TransactionModel> transactionsModelList,
+      required final List<String?> categoryList,
+      required final TransactionType transactionType,
+      required final Widget? categoryTransactionsListPage,
+      required final String? category,
+      required final bool? isListByCategory}) = _$_CategoryState;
 
   @override
   int get position;
   @override
   List<TransactionModel> get transactionsModelList;
+  @override
+  List<String?> get categoryList;
+  @override // required Set<TransactionModel> transactionModelSet,
+  TransactionType get transactionType;
+  @override
+  Widget? get categoryTransactionsListPage;
+  @override
+  String? get category;
+  @override
+  bool? get isListByCategory;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryStateCopyWith<_$_CategoryState> get copyWith =>

@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:money_manger_bloc/applications/add_transaction/add_transaction_bloc.dart';
 import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
+import 'package:money_manger_bloc/domain/models/transaction_model.dart';
+import 'package:money_manger_bloc/infrastructure/repositories/transactions_repo.dart';
+import 'package:money_manger_bloc/main.dart';
 import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
@@ -21,8 +24,12 @@ class AddTransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MainPage.viewedScreen = Screen.addTransaction;
+    MainPage.viewedScreen = MainPage.viewedScreen == Screen.updateTransaction
+        ? Screen.updateTransaction
+        : Screen.addTransaction;
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      // BlocProvider.of<AddTransactionBloc>(context)
+      //     .add(const ViewAddTransactionPage());
       // BlocProvider.of<MainPageBloc>(context).add(const ViewMainPage(
       //     gotoScreen: Screen.addTransaction,
       //     gotoWidget: AddTransactionScreen()));
@@ -75,7 +82,7 @@ class TransactionTypeRadioButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MainPage.viewedScreen = Screen.addTransaction;
+    // MainPage.viewedScreen = Screen.addTransaction;
     return BlocBuilder<AddTransactionBloc, AddTransactionState>(
       builder: (context, state) {
         AddTransactionScreen.radioValue = state.transactiontype;
@@ -133,16 +140,39 @@ class CategoryDropdownListButton extends StatelessWidget {
   // String addNewCategory = "Add New Category";
   // String mango = "mango";
   // String apple = "apple";
-  List<String> dropDownButtonItems = [
-    "Add New Category",
-    "mango",
-    "apple",
-  ];
+
+  static List<TransactionModel> tempTransactionModelList = [];
+
+  Set<String> categoryItems() {
+    TransactionType? transactionType = AddTransactionScreen.radioValue;
+    Set<String> listOfCategoryItems = {
+      "Add New Category",
+      "mango",
+      "apple",
+    };
+    // final transactionModelList = await TransactionsRepo.getAllFromStorage();
+
+    tempTransactionModelList.forEach((element) {
+      if (element.transactionType == transactionType &&
+          element.category != null) {
+        listOfCategoryItems.add(element.category!);
+      }
+    });
+    return listOfCategoryItems;
+  }
+
+  // List<String> dropDownButtonItems = [
+  //   "Add New Category",
+  //   "mango",
+  //   "apple",
+  // ];
 
   List<DropdownMenuItem> dropdownMenuItemList(BuildContext context) {
-    List<DropdownMenuItem> ListOfDropdownMenuItem = [];
-    dropDownButtonItems.forEach((element) {
-      ListOfDropdownMenuItem.add(DropdownMenuItem(
+    List<DropdownMenuItem> listOfDropdownMenuItem = [];
+    // dropDownButtonIgtems.forEach((element) {
+    Set<String> strinSet = categoryItems();
+    strinSet.forEach((element) {
+      listOfDropdownMenuItem.add(DropdownMenuItem(
         value: element,
         child: Text(element),
         onTap: () {
@@ -151,7 +181,7 @@ class CategoryDropdownListButton extends StatelessWidget {
         },
       ));
     });
-    return ListOfDropdownMenuItem;
+    return listOfDropdownMenuItem;
   }
 
   @override
@@ -159,6 +189,11 @@ class CategoryDropdownListButton extends StatelessWidget {
     return BlocBuilder<AddTransactionBloc, AddTransactionState>(
       builder: (context, state) {
         AddTransactionScreen.dropdownButtonValue = state.dropDownButtonValue;
+        List<DropdownMenuItem> dropdownMenuItemList2 = [];
+        // WidgetsBinding.instance.addPostFrameCallback((_) {
+        dropdownMenuItemList2 = dropdownMenuItemList(context);
+        print("dropdownMenuItemList2 $dropdownMenuItemList2");
+        // });
         return DropdownButton(
           value: AddTransactionScreen.dropdownButtonValue,
           hint: const Text("Select Category"),
@@ -203,6 +238,10 @@ class CategoryDropdownListButton extends StatelessWidget {
             if (dropdownitemSeclectedValue == "Add New Category") {
               ///
               print(dropdownitemSeclectedValue);
+              // showInSnackBar(context);
+
+              showDialog(
+                  context: context, builder: (context) => showAlertDialog());
             }
           },
         );
@@ -278,4 +317,39 @@ class DescriptionTextWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+void showInSnackBar(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: const Text("value"),
+      action: SnackBarAction(
+        label: 'Dissmiss',
+        textColor: Colors.yellow,
+        onPressed: () {
+          //  Navigator.of(context).pop();
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        },
+      ),
+      duration: const Duration(minutes: 5)));
+}
+
+Widget showAlertDialog() {
+  return AlertDialog(
+    title: const Text("Add new Category"),
+    content: const Center(
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+        ),
+      ),
+    ),
+    actions: [
+      ElevatedButton(
+        onPressed: () {
+          // alert Dialog button pressed
+        },
+        child: const Text("Ok"),
+      )
+    ],
+  );
 }

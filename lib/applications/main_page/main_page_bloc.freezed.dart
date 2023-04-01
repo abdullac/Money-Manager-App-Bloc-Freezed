@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MainPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+    required TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)
         viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
@@ -27,8 +27,8 @@ mixin _$MainPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult? Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
@@ -36,8 +36,8 @@ mixin _$MainPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
@@ -94,7 +94,7 @@ abstract class _$$ViewMainPageCopyWith<$Res> {
       __$$ViewMainPageCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle});
+      {Screen gotoScreen, Widget gotoWidget, String? transactionCategoryTitle});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$ViewMainPageCopyWithImpl<$Res>
   $Res call({
     Object? gotoScreen = null,
     Object? gotoWidget = null,
-    Object? transactionItemTitle = freezed,
+    Object? transactionCategoryTitle = freezed,
   }) {
     return _then(_$ViewMainPage(
       gotoScreen: null == gotoScreen
@@ -121,9 +121,9 @@ class __$$ViewMainPageCopyWithImpl<$Res>
           ? _value.gotoWidget
           : gotoWidget // ignore: cast_nullable_to_non_nullable
               as Widget,
-      transactionItemTitle: freezed == transactionItemTitle
-          ? _value.transactionItemTitle
-          : transactionItemTitle // ignore: cast_nullable_to_non_nullable
+      transactionCategoryTitle: freezed == transactionCategoryTitle
+          ? _value.transactionCategoryTitle
+          : transactionCategoryTitle // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -135,18 +135,18 @@ class _$ViewMainPage implements ViewMainPage {
   const _$ViewMainPage(
       {required this.gotoScreen,
       required this.gotoWidget,
-      this.transactionItemTitle});
+      this.transactionCategoryTitle});
 
   @override
   final Screen gotoScreen;
   @override
   final Widget gotoWidget;
   @override
-  final String? transactionItemTitle;
+  final String? transactionCategoryTitle;
 
   @override
   String toString() {
-    return 'MainPageEvent.viewMainPage(gotoScreen: $gotoScreen, gotoWidget: $gotoWidget, transactionItemTitle: $transactionItemTitle)';
+    return 'MainPageEvent.viewMainPage(gotoScreen: $gotoScreen, gotoWidget: $gotoWidget, transactionCategoryTitle: $transactionCategoryTitle)';
   }
 
   @override
@@ -158,13 +158,14 @@ class _$ViewMainPage implements ViewMainPage {
                 other.gotoScreen == gotoScreen) &&
             (identical(other.gotoWidget, gotoWidget) ||
                 other.gotoWidget == gotoWidget) &&
-            (identical(other.transactionItemTitle, transactionItemTitle) ||
-                other.transactionItemTitle == transactionItemTitle));
+            (identical(
+                    other.transactionCategoryTitle, transactionCategoryTitle) ||
+                other.transactionCategoryTitle == transactionCategoryTitle));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, gotoScreen, gotoWidget, transactionItemTitle);
+  int get hashCode => Object.hash(
+      runtimeType, gotoScreen, gotoWidget, transactionCategoryTitle);
 
   @JsonKey(ignore: true)
   @override
@@ -175,39 +176,39 @@ class _$ViewMainPage implements ViewMainPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+    required TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)
         viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
   }) {
-    return viewMainPage(gotoScreen, gotoWidget, transactionItemTitle);
+    return viewMainPage(gotoScreen, gotoWidget, transactionCategoryTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult? Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
   }) {
-    return viewMainPage?.call(gotoScreen, gotoWidget, transactionItemTitle);
+    return viewMainPage?.call(gotoScreen, gotoWidget, transactionCategoryTitle);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
     required TResult orElse(),
   }) {
     if (viewMainPage != null) {
-      return viewMainPage(gotoScreen, gotoWidget, transactionItemTitle);
+      return viewMainPage(gotoScreen, gotoWidget, transactionCategoryTitle);
     }
     return orElse();
   }
@@ -252,11 +253,11 @@ abstract class ViewMainPage implements MainPageEvent {
   const factory ViewMainPage(
       {required final Screen gotoScreen,
       required final Widget gotoWidget,
-      final String? transactionItemTitle}) = _$ViewMainPage;
+      final String? transactionCategoryTitle}) = _$ViewMainPage;
 
   Screen get gotoScreen;
   Widget get gotoWidget;
-  String? get transactionItemTitle;
+  String? get transactionCategoryTitle;
   @JsonKey(ignore: true)
   _$$ViewMainPageCopyWith<_$ViewMainPage> get copyWith =>
       throw _privateConstructorUsedError;
@@ -300,8 +301,8 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+    required TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)
         viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
@@ -312,8 +313,8 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult? Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
@@ -324,8 +325,8 @@ class _$GotoAddTransactionPage implements GotoAddTransactionPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,
@@ -442,8 +443,8 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)
+    required TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)
         viewMainPage,
     required TResult Function() gotoAddTransactionPage,
     required TResult Function(Widget gotoWidget) gotoPageWidget,
@@ -454,8 +455,8 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult? Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult? Function()? gotoAddTransactionPage,
     TResult? Function(Widget gotoWidget)? gotoPageWidget,
@@ -466,8 +467,8 @@ class _$GotoPageWidget implements GotoPageWidget {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Screen gotoScreen, Widget gotoWidget, String? transactionItemTitle)?
+    TResult Function(Screen gotoScreen, Widget gotoWidget,
+            String? transactionCategoryTitle)?
         viewMainPage,
     TResult Function()? gotoAddTransactionPage,
     TResult Function(Widget gotoWidget)? gotoPageWidget,

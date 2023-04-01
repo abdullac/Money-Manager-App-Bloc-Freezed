@@ -2,6 +2,9 @@ part of 'add_transaction_bloc.dart';
 
 @freezed
 class AddTransactionEvent with _$AddTransactionEvent {
+
+  // const factory AddTransactionEvent.viewAddTransactionPage() = ViewAddTransactionPage;
+
   const factory AddTransactionEvent.saveTransaction({
     required TransactionModel transactionModel,
   }) = SaveTransaction;
@@ -17,4 +20,9 @@ class AddTransactionEvent with _$AddTransactionEvent {
    const factory AddTransactionEvent.selectDateUiChange({
     required DateTime? selectedDate,
   }) = SelectDateUiChange;
+
+
+  const factory AddTransactionEvent.editItem({
+    required TransactionModel transactionModel,
+  }) = EditItem;
 }

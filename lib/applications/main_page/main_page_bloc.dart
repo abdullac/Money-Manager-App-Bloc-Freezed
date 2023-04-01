@@ -2,9 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/add_transaction_page_widget.dart';
-import 'package:money_manger_bloc/domain/metheds/main_page/appbar_back_button.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/appbar_leading_widget.dart';
-import 'package:money_manger_bloc/domain/metheds/main_page/select_appbar_action_icon.dart';
 import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
@@ -19,12 +17,12 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         appBarLeadingWidget: appBarLeadingWidget(event.gotoScreen),
         appBarTitle: event.gotoScreen == Screen.addTransaction
             ? "Add Transaction"
-            : event.gotoScreen == Screen.expenseTransactionList
-                ? "Expense"
-                : event.gotoScreen == Screen.incomeTransactionList
-                    ? "Income"
+            : event.gotoScreen == Screen.expenseTransactionListByCategory
+                ? event.transactionCategoryTitle ?? "*Category"
+                : event.gotoScreen == Screen.incomeTransactionListByCategory
+                    ? event.transactionCategoryTitle ?? "*Category"
                     : event.gotoScreen == Screen.transactionView
-                        ? event.transactionItemTitle ?? "*Transaction Item"
+                        ? event.transactionCategoryTitle ?? "*Transaction Item"
                         : event.gotoScreen == Screen.updateTransaction
                             ? "Update Transaction"
                             : "MoneyManager MM",
@@ -37,7 +35,10 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         position: event.gotoScreen == Screen.transactions
             ? 0
             : event.gotoScreen == Screen.incomeCategory ||
-                    event.gotoScreen == Screen.expenseCategory
+                    event.gotoScreen == Screen.expenseCategory ||
+                    event.gotoScreen ==
+                        Screen.incomeTransactionListByCategory ||
+                    event.gotoScreen == Screen.expenseTransactionListByCategory
                 ? 1
                 : null,
       ));

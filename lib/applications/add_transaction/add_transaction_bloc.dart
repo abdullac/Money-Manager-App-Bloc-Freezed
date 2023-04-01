@@ -12,8 +12,18 @@ part 'add_transaction_bloc.freezed.dart';
 class AddTransactionBloc
     extends Bloc<AddTransactionEvent, AddTransactionState> {
   AddTransactionBloc() : super(AddTransactionState.initial()) {
+    // on<ViewAddTransactionPage>((event, emit) {
+    //   emit(state.copyWith(
+    //       amount: "",
+    //       transactiontype: null,
+    //       dropDownButtonValue: null,
+    //       selectedDate: null,
+    //       description: ""));
+    // });
+
     on<SaveTransaction>((event, emit) {
-      AddTransactionRepo.saveTransaction(event.transactionModel);
+      // AddTransactionRepo.saveTransaction(event.transactionModel);
+      AddTransactionRepo.saveToStorage(event.transactionModel);
       // emit(state.copyWith(
       // gotoAfterSaveWidget: event.gotoAfterSaveWidget
       // ));
@@ -34,5 +44,10 @@ class AddTransactionBloc
         selectedDate: event.selectedDate,
       ));
     });
+
+     on<EditItem>((event, emit) async {
+      await AddTransactionRepo.editItemFromStorage(transactionModel: event.transactionModel);
+    });
+
   }
 }

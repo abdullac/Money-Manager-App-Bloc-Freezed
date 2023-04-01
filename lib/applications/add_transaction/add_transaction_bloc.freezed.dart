@@ -25,6 +25,7 @@ mixin _$AddTransactionEvent {
     required TResult Function(String? dropDownButtonValue)
         dropDownButtonUiChange,
     required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +34,7 @@ mixin _$AddTransactionEvent {
     TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$AddTransactionEvent {
     TResult Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$AddTransactionEvent {
     required TResult Function(DropDownButtonUiChange value)
         dropDownButtonUiChange,
     required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +63,7 @@ mixin _$AddTransactionEvent {
     TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +72,7 @@ mixin _$AddTransactionEvent {
     TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -172,6 +178,7 @@ class _$SaveTransaction implements SaveTransaction {
     required TResult Function(String? dropDownButtonValue)
         dropDownButtonUiChange,
     required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
   }) {
     return saveTransaction(transactionModel);
   }
@@ -183,6 +190,7 @@ class _$SaveTransaction implements SaveTransaction {
     TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
   }) {
     return saveTransaction?.call(transactionModel);
   }
@@ -194,6 +202,7 @@ class _$SaveTransaction implements SaveTransaction {
     TResult Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
     required TResult orElse(),
   }) {
     if (saveTransaction != null) {
@@ -210,6 +219,7 @@ class _$SaveTransaction implements SaveTransaction {
     required TResult Function(DropDownButtonUiChange value)
         dropDownButtonUiChange,
     required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
   }) {
     return saveTransaction(this);
   }
@@ -221,6 +231,7 @@ class _$SaveTransaction implements SaveTransaction {
     TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
   }) {
     return saveTransaction?.call(this);
   }
@@ -232,6 +243,7 @@ class _$SaveTransaction implements SaveTransaction {
     TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
     required TResult orElse(),
   }) {
     if (saveTransaction != null) {
@@ -324,6 +336,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     required TResult Function(String? dropDownButtonValue)
         dropDownButtonUiChange,
     required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
   }) {
     return radioButtonUiChange(transactionType);
   }
@@ -335,6 +348,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
   }) {
     return radioButtonUiChange?.call(transactionType);
   }
@@ -346,6 +360,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     TResult Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
     required TResult orElse(),
   }) {
     if (radioButtonUiChange != null) {
@@ -362,6 +377,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     required TResult Function(DropDownButtonUiChange value)
         dropDownButtonUiChange,
     required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
   }) {
     return radioButtonUiChange(this);
   }
@@ -373,6 +389,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
   }) {
     return radioButtonUiChange?.call(this);
   }
@@ -384,6 +401,7 @@ class _$RadioButtonUiChange implements RadioButtonUiChange {
     TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
     required TResult orElse(),
   }) {
     if (radioButtonUiChange != null) {
@@ -477,6 +495,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     required TResult Function(String? dropDownButtonValue)
         dropDownButtonUiChange,
     required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
   }) {
     return dropDownButtonUiChange(dropDownButtonValue);
   }
@@ -488,6 +507,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
   }) {
     return dropDownButtonUiChange?.call(dropDownButtonValue);
   }
@@ -499,6 +519,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     TResult Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
     required TResult orElse(),
   }) {
     if (dropDownButtonUiChange != null) {
@@ -515,6 +536,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     required TResult Function(DropDownButtonUiChange value)
         dropDownButtonUiChange,
     required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
   }) {
     return dropDownButtonUiChange(this);
   }
@@ -526,6 +548,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
   }) {
     return dropDownButtonUiChange?.call(this);
   }
@@ -537,6 +560,7 @@ class _$DropDownButtonUiChange implements DropDownButtonUiChange {
     TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
     required TResult orElse(),
   }) {
     if (dropDownButtonUiChange != null) {
@@ -629,6 +653,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     required TResult Function(String? dropDownButtonValue)
         dropDownButtonUiChange,
     required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
   }) {
     return selectDateUiChange(selectedDate);
   }
@@ -640,6 +665,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
   }) {
     return selectDateUiChange?.call(selectedDate);
   }
@@ -651,6 +677,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     TResult Function(TransactionType? transactionType)? radioButtonUiChange,
     TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
     TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
     required TResult orElse(),
   }) {
     if (selectDateUiChange != null) {
@@ -667,6 +694,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     required TResult Function(DropDownButtonUiChange value)
         dropDownButtonUiChange,
     required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
   }) {
     return selectDateUiChange(this);
   }
@@ -678,6 +706,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
   }) {
     return selectDateUiChange?.call(this);
   }
@@ -689,6 +718,7 @@ class _$SelectDateUiChange implements SelectDateUiChange {
     TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
     TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
     TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
     required TResult orElse(),
   }) {
     if (selectDateUiChange != null) {
@@ -709,7 +739,174 @@ abstract class SelectDateUiChange implements AddTransactionEvent {
 }
 
 /// @nodoc
+abstract class _$$EditItemCopyWith<$Res> {
+  factory _$$EditItemCopyWith(
+          _$EditItem value, $Res Function(_$EditItem) then) =
+      __$$EditItemCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TransactionModel transactionModel});
+
+  $TransactionModelCopyWith<$Res> get transactionModel;
+}
+
+/// @nodoc
+class __$$EditItemCopyWithImpl<$Res>
+    extends _$AddTransactionEventCopyWithImpl<$Res, _$EditItem>
+    implements _$$EditItemCopyWith<$Res> {
+  __$$EditItemCopyWithImpl(_$EditItem _value, $Res Function(_$EditItem) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transactionModel = null,
+  }) {
+    return _then(_$EditItem(
+      transactionModel: null == transactionModel
+          ? _value.transactionModel
+          : transactionModel // ignore: cast_nullable_to_non_nullable
+              as TransactionModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TransactionModelCopyWith<$Res> get transactionModel {
+    return $TransactionModelCopyWith<$Res>(_value.transactionModel, (value) {
+      return _then(_value.copyWith(transactionModel: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$EditItem implements EditItem {
+  const _$EditItem({required this.transactionModel});
+
+  @override
+  final TransactionModel transactionModel;
+
+  @override
+  String toString() {
+    return 'AddTransactionEvent.editItem(transactionModel: $transactionModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditItem &&
+            (identical(other.transactionModel, transactionModel) ||
+                other.transactionModel == transactionModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transactionModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditItemCopyWith<_$EditItem> get copyWith =>
+      __$$EditItemCopyWithImpl<_$EditItem>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TransactionModel transactionModel)
+        saveTransaction,
+    required TResult Function(TransactionType? transactionType)
+        radioButtonUiChange,
+    required TResult Function(String? dropDownButtonValue)
+        dropDownButtonUiChange,
+    required TResult Function(DateTime? selectedDate) selectDateUiChange,
+    required TResult Function(TransactionModel transactionModel) editItem,
+  }) {
+    return editItem(transactionModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(TransactionModel transactionModel)? saveTransaction,
+    TResult? Function(TransactionType? transactionType)? radioButtonUiChange,
+    TResult? Function(String? dropDownButtonValue)? dropDownButtonUiChange,
+    TResult? Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult? Function(TransactionModel transactionModel)? editItem,
+  }) {
+    return editItem?.call(transactionModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TransactionModel transactionModel)? saveTransaction,
+    TResult Function(TransactionType? transactionType)? radioButtonUiChange,
+    TResult Function(String? dropDownButtonValue)? dropDownButtonUiChange,
+    TResult Function(DateTime? selectedDate)? selectDateUiChange,
+    TResult Function(TransactionModel transactionModel)? editItem,
+    required TResult orElse(),
+  }) {
+    if (editItem != null) {
+      return editItem(transactionModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SaveTransaction value) saveTransaction,
+    required TResult Function(RadioButtonUiChange value) radioButtonUiChange,
+    required TResult Function(DropDownButtonUiChange value)
+        dropDownButtonUiChange,
+    required TResult Function(SelectDateUiChange value) selectDateUiChange,
+    required TResult Function(EditItem value) editItem,
+  }) {
+    return editItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SaveTransaction value)? saveTransaction,
+    TResult? Function(RadioButtonUiChange value)? radioButtonUiChange,
+    TResult? Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
+    TResult? Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult? Function(EditItem value)? editItem,
+  }) {
+    return editItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SaveTransaction value)? saveTransaction,
+    TResult Function(RadioButtonUiChange value)? radioButtonUiChange,
+    TResult Function(DropDownButtonUiChange value)? dropDownButtonUiChange,
+    TResult Function(SelectDateUiChange value)? selectDateUiChange,
+    TResult Function(EditItem value)? editItem,
+    required TResult orElse(),
+  }) {
+    if (editItem != null) {
+      return editItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EditItem implements AddTransactionEvent {
+  const factory EditItem({required final TransactionModel transactionModel}) =
+      _$EditItem;
+
+  TransactionModel get transactionModel;
+  @JsonKey(ignore: true)
+  _$$EditItemCopyWith<_$EditItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AddTransactionState {
+// required String amount,
   TransactionType? get transactiontype => throw _privateConstructorUsedError;
   String? get dropDownButtonValue => throw _privateConstructorUsedError;
   DateTime? get selectedDate => throw _privateConstructorUsedError;
@@ -819,6 +1016,7 @@ class _$_AddTransactionState implements _AddTransactionState {
       required this.dropDownButtonValue,
       required this.selectedDate});
 
+// required String amount,
   @override
   final TransactionType? transactiontype;
   @override
@@ -862,7 +1060,7 @@ abstract class _AddTransactionState implements AddTransactionState {
       required final String? dropDownButtonValue,
       required final DateTime? selectedDate}) = _$_AddTransactionState;
 
-  @override
+  @override // required String amount,
   TransactionType? get transactiontype;
   @override
   String? get dropDownButtonValue;

@@ -5,11 +5,23 @@ class CategoryState with _$CategoryState {
   const factory CategoryState({
     required int position,
     required List<TransactionModel> transactionsModelList,
+    required List<String?> categoryList,
+    // required Set<TransactionModel> transactionModelSet,
+    required TransactionType transactionType,
+    required Widget? categoryTransactionsListPage,
+    required String? category,
+    required bool? isListByCategory,
   }) = _CategoryState;
   factory CategoryState.initial() {
     return const CategoryState(
       position: 0,
       transactionsModelList: [],
+      categoryList: [],
+      // transactionModelSet: {},
+      transactionType: TransactionType.income,
+      categoryTransactionsListPage: null,
+      category: null,
+      isListByCategory: false,
     );
   }
 }
