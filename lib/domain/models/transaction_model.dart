@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
+import 'package:money_manger_bloc/core/constants.dart';
 part 'transaction_model.freezed.dart';
 part 'transaction_model.g.dart';
 

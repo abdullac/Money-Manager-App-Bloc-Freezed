@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 import 'package:money_manger_bloc/infrastructure/repositories/transactions_repo.dart';
-import 'package:money_manger_bloc/main.dart';
 
 part 'transactions_event.dart';
 part 'transactions_state.dart';
@@ -15,13 +14,11 @@ class TransactionsBloc extends Bloc<TransactionsEvent, TransactionsState> {
         isLoading: true,
         transactionModelList: [],
       ));
-      // var getTransactionModelList = TransactionsRepo.getTransactionModelList();
-      var getTransactionModelListStorage = await TransactionsRepo.getAllFromStorage();
-      // print(getTransactionModelList);
+      var getTransactionModelListStorage =
+          await TransactionsRepo.getAllFromStorage();
       emit(state.copyWith(
         isLoading: false,
         transactionModelList: getTransactionModelListStorage,
-        // transactionModelList: transactionModelList,
       ));
     });
   }

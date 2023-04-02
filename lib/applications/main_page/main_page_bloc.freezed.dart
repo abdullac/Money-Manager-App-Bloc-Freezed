@@ -531,8 +531,7 @@ mixin _$MainPageState {
   int? get position => throw _privateConstructorUsedError;
   Widget get appBarLeadingWidget => throw _privateConstructorUsedError;
   String get appBarTitle => throw _privateConstructorUsedError;
-  IconData? get actionIconButton =>
-      throw _privateConstructorUsedError; // required Widget? addTransactionPage,
+  IconData? get actionIconButton => throw _privateConstructorUsedError;
   Widget get goToWidget => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -674,7 +673,6 @@ class _$_MainPageState implements _MainPageState {
   final String appBarTitle;
   @override
   final IconData? actionIconButton;
-// required Widget? addTransactionPage,
   @override
   final Widget goToWidget;
 
@@ -727,7 +725,7 @@ abstract class _MainPageState implements MainPageState {
   String get appBarTitle;
   @override
   IconData? get actionIconButton;
-  @override // required Widget? addTransactionPage,
+  @override
   Widget get goToWidget;
   @override
   @JsonKey(ignore: true)

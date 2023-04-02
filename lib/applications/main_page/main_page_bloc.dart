@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:money_manger_bloc/core/constants.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/add_transaction_page_widget.dart';
 import 'package:money_manger_bloc/domain/metheds/main_page/appbar_leading_widget.dart';
-import 'package:money_manger_bloc/presentations/main_page/page_main.dart';
 import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
 part 'main_page_event.dart';
@@ -43,38 +43,6 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
                 : null,
       ));
     });
-
-    // on<ChangeBottomNavigationBarItem>((event, emit) {
-    //   emit(state.copyWith(
-    //     position: event.position,
-    //   ));
-    // });
-
-    // on<ViewAppbarBackButton>((event, emit) {
-    //   bool isViewGoBackButton = event.isViewGoBackButton;
-    //   emit(state.copyWith(
-    //     goBackButton: appBarBackButton(isViewGoBackButton),
-    //   ));
-    // });
-
-    // on<ChangeAppBarTitle>((event, emit) {
-    //   emit(state.copyWith(
-    //     appBarTitle: event.appBarTitle,
-    //   ));
-    // });
-
-    // on<ChangeActionButton>((event, emit) {
-    //   AppbarActionButton appbarActionButton = event.appbarActionButton;
-    //   emit(state.copyWith(
-    //     actionIconButton: selectAppbarActionIcon(appbarActionButton),
-    //   ));
-    // });
-
-    // on<GotoBack>((event, emit) {
-    //   emit(state.copyWith(
-    //     goToWidget: event.gotoBackWidget,
-    //   ));
-    // });
 
     on<GotoAddTransactionPage>((event, emit) {
       Widget addTransactionPage = addTransactionPageWidget();

@@ -7,7 +7,6 @@ class MainPageState with _$MainPageState {
     required Widget appBarLeadingWidget,
     required String appBarTitle,
     required IconData? actionIconButton,
-    // required Widget? addTransactionPage,
     required Widget goToWidget,
   }) = _MainPageState;
   factory MainPageState.initial() {
@@ -16,7 +15,6 @@ class MainPageState with _$MainPageState {
       appBarLeadingWidget: Icon(Icons.home),
       appBarTitle: "Money Manager App MM",
       actionIconButton: Icons.add_card,
-      // addTransactionPage: null,
       goToWidget: ScreenTransactions(),
     );
   }

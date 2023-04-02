@@ -3,7 +3,6 @@ import 'package:money_manger_bloc/applications/add_transaction/add_transaction_b
 import 'package:money_manger_bloc/applications/category/category_bloc.dart';
 import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
 import 'package:money_manger_bloc/applications/transactions/transactions_bloc.dart';
-import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 
 /// this app works with temperary local server. - https://github.com/abdullac/note-app-nest-js.git
 

@@ -7,6 +7,6 @@ class TransactionViewState with _$TransactionViewState {
   }) = _TransactionViewState;
 
   factory TransactionViewState.initial() {
-    return TransactionViewState(transactionViewPage: null);
+    return const TransactionViewState(transactionViewPage: null);
   }
 }

@@ -906,7 +906,6 @@ abstract class EditItem implements AddTransactionEvent {
 
 /// @nodoc
 mixin _$AddTransactionState {
-// required String amount,
   TransactionType? get transactiontype => throw _privateConstructorUsedError;
   String? get dropDownButtonValue => throw _privateConstructorUsedError;
   DateTime? get selectedDate => throw _privateConstructorUsedError;
@@ -1016,7 +1015,6 @@ class _$_AddTransactionState implements _AddTransactionState {
       required this.dropDownButtonValue,
       required this.selectedDate});
 
-// required String amount,
   @override
   final TransactionType? transactiontype;
   @override
@@ -1060,7 +1058,7 @@ abstract class _AddTransactionState implements AddTransactionState {
       required final String? dropDownButtonValue,
       required final DateTime? selectedDate}) = _$_AddTransactionState;
 
-  @override // required String amount,
+  @override
   TransactionType? get transactiontype;
   @override
   String? get dropDownButtonValue;

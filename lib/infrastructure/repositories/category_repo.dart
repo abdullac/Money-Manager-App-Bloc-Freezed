@@ -1,12 +1,12 @@
+import 'package:money_manger_bloc/core/constants.dart';
 import 'package:money_manger_bloc/domain/models/transaction_model.dart';
 import 'package:money_manger_bloc/infrastructure/repositories/transactions_repo.dart';
-import 'package:money_manger_bloc/main.dart';
-import 'package:money_manger_bloc/presentations/transactions_screen/screen_transactions.dart';
 
+// from storage
 class CategoryRepo {
-  static Future<List<TransactionModel>> getTransactionModelList(int position) async {
-    /// position 0 = income
-    /// position 1 = expence
+  // getTransactionModelList by transactionType from storage
+  static Future<List<TransactionModel>> getTransactionModelList(
+      int position) async {
     TransactionType transactionType =
         position == 0 ? TransactionType.income : TransactionType.expense;
     List<TransactionModel> listOfTransactionModel = [];
@@ -19,24 +19,7 @@ class CategoryRepo {
     return listOfTransactionModel;
   }
 
-  // static List<TransactionModel> getIncomeCategoryTransactionModelList({
-  //   required TransactionType transactionType,
-  //   required String category,
-  // }) {
-  //   /// position 0 = income
-  //   /// position 1 = expence
-  //   // TransactionType transactionType =
-  //   //     position == 0 ? TransactionType.income : TransactionType.expense;
-  //   List<TransactionModel> listOfTransactionModel = [];
-  //   transactionModelList.forEach((element) {
-  //     if (element.transactionType == transactionType &&
-  //         element.category == category) {
-  //       listOfTransactionModel.add(element);
-  //     }
-  //   });
-  //   return listOfTransactionModel;
-  // }
-// 
+  //getTransactionModelList By Category
   static Future<List<TransactionModel>> getTransactionModelListByCategory({
     required TransactionType transactionType,
     required String category,
@@ -50,17 +33,9 @@ class CategoryRepo {
       }
     });
     return listOfTransactionModel;
-    // List<TransactionModel> listOfTransactionModel = [];
-    // tempTransactionModelList.forEach((element) {
-    //   if (element.transactionType == transactionType &&
-    //       element.category == category) {
-    //     listOfTransactionModel.add(element);
-    //   }
-    // });
-    // return listOfTransactionModel;
   }
 
-
+  // get TransactionModelList by income transactionType
   static Future<List<TransactionModel>> getIncomeTransactionModelList() async {
     Set<TransactionModel> listOfTransactionModel = {};
     final transactionModelList = await TransactionsRepo.getAllFromStorage();
@@ -72,6 +47,7 @@ class CategoryRepo {
     return listOfTransactionModel.map((e) => e).toList();
   }
 
+  // get TransactionModelList by expense transactionType
   static Future<List<TransactionModel>> getExpenseTransactionModelList() async {
     Set<TransactionModel> listOfTransactionModel = {};
     final transactionModelList = await TransactionsRepo.getAllFromStorage();
@@ -83,6 +59,7 @@ class CategoryRepo {
     return listOfTransactionModel.map((e) => e).toList();
   }
 
+  // get category name by income transactionType
   static Future<List<String?>> getIncomeCategoryList() async {
     Set<String?> setOfIncomeCategory = {};
     final transactionModelList = await TransactionsRepo.getAllFromStorage();
@@ -96,6 +73,7 @@ class CategoryRepo {
     return listOfIncomeCategory;
   }
 
+  // get category name by expense transactionType
   static Future<List<String?>> getExpenseCategoryList() async {
     Set<String?> setOfExpenseCategory = {};
     final transactionModelList = await TransactionsRepo.getAllFromStorage();

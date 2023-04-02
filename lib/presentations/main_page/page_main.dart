@@ -1,30 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_manger_bloc/applications/main_page/main_page_bloc.dart';
-import 'package:money_manger_bloc/applications/transaction_view/transaction_view_bloc.dart';
-import 'package:money_manger_bloc/infrastructure/repositories/transactions_repo.dart';
-import 'package:money_manger_bloc/main.dart';
-import 'package:money_manger_bloc/presentations/main_page/widgets/app_bar.dart';
-import 'package:money_manger_bloc/presentations/main_page/widgets/bottom_navigation_bar.dart';
+import 'package:money_manger_bloc/core/constants.dart';
+import 'package:money_manger_bloc/presentations/main_page/core/widgets/app_bar.dart';
+import 'package:money_manger_bloc/presentations/main_page/core/widgets/bottom_navigation_bar.dart';
 
-enum Screen {
-  transactions,
-  category,
-  incomeCategory,
-  expenseCategory,
-  incomeTransactionListByCategory,
-  expenseTransactionListByCategory,
-  addTransaction,
-  updateTransaction,
-  transactionView,
-}
-
-enum AppbarActionButton {
-  add,
-  save,
-  update,
-}
-
+// this widget is main widget with appBar and bottomNavigationBar
 class MainPage extends StatelessWidget {
   const MainPage({
     super.key,
@@ -34,9 +15,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // transactionModelList = await TransactionsRepo.getAllFromStorage();
-    });
     return BlocBuilder<MainPageBloc, MainPageState>(
       builder: (context, state) {
         return Scaffold(
@@ -48,14 +26,3 @@ class MainPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-      // BlocProvider.of<TransactionViewBloc>(context).add(
-      //   const TransactionViewPage(transactionViewPage: null),
-      // );

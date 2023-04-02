@@ -539,7 +539,6 @@ class _$ViewTransactionListByCatogory implements ViewTransactionListByCatogory {
   const _$ViewTransactionListByCatogory(
       {required this.transactionType, required this.category});
 
-// required int position,
   @override
   final TransactionType transactionType;
   @override
@@ -659,7 +658,6 @@ abstract class ViewTransactionListByCatogory implements CategoryEvent {
       {required final TransactionType transactionType,
       required final String category}) = _$ViewTransactionListByCatogory;
 
-// required int position,
   TransactionType get transactionType;
   String get category;
   @JsonKey(ignore: true)
@@ -672,8 +670,7 @@ mixin _$CategoryState {
   int get position => throw _privateConstructorUsedError;
   List<TransactionModel> get transactionsModelList =>
       throw _privateConstructorUsedError;
-  List<String?> get categoryList =>
-      throw _privateConstructorUsedError; // required Set<TransactionModel> transactionModelSet,
+  List<String?> get categoryList => throw _privateConstructorUsedError;
   TransactionType get transactionType => throw _privateConstructorUsedError;
   Widget? get categoryTransactionsListPage =>
       throw _privateConstructorUsedError;
@@ -858,7 +855,6 @@ class _$_CategoryState implements _CategoryState {
     return EqualUnmodifiableListView(_categoryList);
   }
 
-// required Set<TransactionModel> transactionModelSet,
   @override
   final TransactionType transactionType;
   @override
@@ -930,7 +926,7 @@ abstract class _CategoryState implements CategoryState {
   List<TransactionModel> get transactionsModelList;
   @override
   List<String?> get categoryList;
-  @override // required Set<TransactionModel> transactionModelSet,
+  @override
   TransactionType get transactionType;
   @override
   Widget? get categoryTransactionsListPage;

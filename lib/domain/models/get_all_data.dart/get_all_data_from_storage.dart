@@ -3,6 +3,7 @@ import 'package:money_manger_bloc/domain/models/storage_model.dart';
 part 'get_all_data_from_storage.freezed.dart';
 part 'get_all_data_from_storage.g.dart';
 
+// get all data from storage by 'data'
 @freezed
 class GetAllDataFromStorage with _$GetAllDataFromStorage {
   const factory GetAllDataFromStorage({
