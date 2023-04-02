@@ -16,10 +16,13 @@ class TransactionTypeRadioButtons extends StatelessWidget {
         AddTransactionScreen.radioValue = state.transactiontype;
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            RadioButtonAndTitle(
-                transactionType: TransactionType.income, radioTitle: "Income"),
-            RadioButtonAndTitle(
+          children: [
+            radioButtonAndTitle(
+              context,
+              transactionType: TransactionType.income,
+              radioTitle: "Income",
+            ),
+            radioButtonAndTitle(context,
                 transactionType: TransactionType.expense,
                 radioTitle: "Expense"),
           ],
@@ -29,32 +32,24 @@ class TransactionTypeRadioButtons extends StatelessWidget {
   }
 }
 
-class RadioButtonAndTitle extends StatelessWidget {
-  final TransactionType transactionType;
-  final String radioTitle;
-  const RadioButtonAndTitle({
-    super.key,
-    required this.transactionType,
-    required this.radioTitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Radio(
-          value: transactionType,
-          groupValue: AddTransactionScreen.radioValue,
-          onChanged: (selectedTransactionType) {
-            //
-            BlocProvider.of<AddTransactionBloc>(context)
-                .add(RadioButtonUiChange(
-              transactionType: selectedTransactionType,
-            ));
-          },
-        ),
-        Text(radioTitle)
-      ],
-    );
-  }
+Widget radioButtonAndTitle(
+  BuildContext context, {
+  required TransactionType transactionType,
+  required String radioTitle,
+}) {
+  return Row(
+    children: [
+      Radio(
+        value: transactionType,
+        groupValue: AddTransactionScreen.radioValue,
+        onChanged: (selectedTransactionType) {
+          //
+          BlocProvider.of<AddTransactionBloc>(context).add(RadioButtonUiChange(
+            transactionType: selectedTransactionType,
+          ));
+        },
+      ),
+      Text(radioTitle)
+    ],
+  );
 }
